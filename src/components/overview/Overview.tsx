@@ -5,7 +5,8 @@ export default function Overview() {
     <div className="card p-4 md:p-6">
       <div className="flex flex-col gap-4">
         <div>
-          <p className="text-sm font-medium text-blue-700">{tripMeta.dates}</p>
+          <h1 className="text-2xl font-bold text-stone-900 tracking-tight">{tripMeta.title}</h1>
+          <p className="text-sm font-medium text-blue-700 mt-1">{tripMeta.dates}</p>
           <p className="text-lg font-semibold text-stone-900 mt-1">{tripMeta.duration}</p>
         </div>
 
