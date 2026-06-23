@@ -1,3 +1,4 @@
+import { MapPin, Clock, DollarSign, ExternalLink } from "lucide-react";
 import { attractions, bonusAttractions } from "@/data/trip-data";
 import type { Attraction } from "@/data/trip-data";
 
@@ -27,12 +28,21 @@ function AttractionCard({ attraction }: { attraction: Attraction }) {
 
       <p className="text-sm text-stone-600 dark:text-stone-400 mt-1">{attraction.location}</p>
       {attraction.distanceFromDEN && (
-        <p className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">📍 {attraction.distanceFromDEN}</p>
+        <p className="text-xs text-stone-500 dark:text-stone-400 mt-0.5 flex items-center gap-1">
+          <MapPin className="w-4 h-4 inline" />
+          {attraction.distanceFromDEN}
+        </p>
       )}
-      <p className="text-sm text-stone-600 dark:text-stone-400 mt-1">⏱ {attraction.duration}</p>
+      <p className="text-sm text-stone-600 dark:text-stone-400 mt-1 flex items-center gap-1">
+        <Clock className="w-4 h-4 inline" />
+        {attraction.duration}
+      </p>
 
       <div className="mt-3">
-        <p className="text-xs font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wide">Pricing</p>
+        <p className="text-xs font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wide flex items-center gap-1">
+          <DollarSign className="w-4 h-4 inline" />
+          Pricing
+        </p>
         <ul className="mt-1 space-y-0.5">
           {attraction.pricing.map((p, i) => (
             <li key={i} className="text-sm text-stone-700 dark:text-stone-300">{p}</li>
@@ -69,9 +79,7 @@ function AttractionCard({ attraction }: { attraction: Attraction }) {
             style={{ touchAction: 'manipulation' }}
           >
             {attraction.websiteLabel || attraction.website}
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
+            <ExternalLink className="w-4 h-4" />
           </a>
         )}
         {attraction.mapUrl && (
@@ -83,9 +91,7 @@ function AttractionCard({ attraction }: { attraction: Attraction }) {
             style={{ touchAction: 'manipulation' }}
           >
             View on Map
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
+            <ExternalLink className="w-4 h-4" />
           </a>
         )}
       </div>

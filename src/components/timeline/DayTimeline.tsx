@@ -1,3 +1,4 @@
+import { Car, Clock } from "lucide-react";
 import { itinerary } from "@/data/trip-data";
 import TimelineItem from "./TimelineItem";
 
@@ -48,10 +49,14 @@ export default function DayTimeline() {
             </div>
 
             <div className="mt-4 bg-stone-50 dark:bg-stone-800 rounded-lg p-3 transition-colors">
-              <p className="text-sm font-medium text-stone-700 dark:text-stone-300">
+              <p className="text-sm font-medium text-stone-700 dark:text-stone-300 flex items-center gap-1">
+                <Car className="w-4 h-4 inline mr-1" />
                 Driving: {day.driving}
               </p>
-              <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">Total: {day.totalDriving}</p>
+              <p className="text-xs text-stone-500 dark:text-stone-400 mt-1 flex items-center gap-1">
+                <Clock className="w-4 h-4 inline mr-1" />
+                Total: {day.totalDriving}
+              </p>
             </div>
           </div>
         </details>

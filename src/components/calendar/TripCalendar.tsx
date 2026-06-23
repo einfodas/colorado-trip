@@ -1,5 +1,6 @@
 "use client";
 
+import { MapPin } from "lucide-react";
 import { itinerary } from "@/data/trip-data";
 
 export default function TripCalendar() {
@@ -34,7 +35,10 @@ export default function TripCalendar() {
           </div>
           <div className="mt-2">
             <p className="text-sm font-medium text-stone-800 dark:text-stone-200 line-clamp-2">{day.theme}</p>
-            <p className="text-xs text-stone-500 dark:text-stone-400 mt-1 line-clamp-1">{day.location}</p>
+            <p className="text-xs text-stone-500 dark:text-stone-400 mt-1 line-clamp-1 flex items-center gap-0.5">
+              <MapPin className="w-3 h-3 inline mr-0.5" />
+              {day.location}
+            </p>
           </div>
         </a>
       ))}
