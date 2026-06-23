@@ -18,26 +18,26 @@ export default function BudgetBreakdown() {
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-stone-50 dark:bg-stone-800 border-b border-stone-200 dark:border-stone-700 transition-colors">
-                <th className="text-left px-4 py-3 font-medium text-stone-700 dark:text-stone-300">Category</th>
-                <th className="text-right px-4 py-3 font-medium text-stone-700 dark:text-stone-300">Low</th>
-                <th className="text-right px-4 py-3 font-medium text-stone-700 dark:text-stone-300">High</th>
-                <th className="text-left px-4 py-3 font-medium text-stone-700 dark:text-stone-300 hidden md:table-cell">Notes</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">Category</th>
+                <th className="text-right px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">Low</th>
+                <th className="text-right px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">High</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300 hidden md:table-cell">Notes</th>
               </tr>
             </thead>
             <tbody>
               {budgetRows.map((row) => (
                 <tr key={row.category} className="border-b border-stone-100 dark:border-stone-700 last:border-0 hover:bg-stone-50 dark:hover:bg-stone-800/50 transition-colors">
-                  <td className="px-4 py-3 font-medium text-stone-900 dark:text-stone-100">{row.category}</td>
-                  <td className="px-4 py-3 text-right text-stone-600 dark:text-stone-400 tabular-nums">{row.low}</td>
-                  <td className="px-4 py-3 text-right text-stone-600 dark:text-stone-400 tabular-nums">{row.high}</td>
-                  <td className="px-4 py-3 text-stone-600 dark:text-stone-400 hidden md:table-cell">{row.notes}</td>
+                  <td className="px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-900 dark:text-stone-100">{row.category}</td>
+                  <td className="px-3 py-2.5 md:px-4 md:py-3 text-right text-stone-600 dark:text-stone-400 tabular-nums">{row.low}</td>
+                  <td className="px-3 py-2.5 md:px-4 md:py-3 text-right text-stone-600 dark:text-stone-400 tabular-nums">{row.high}</td>
+                  <td className="px-3 py-2.5 md:px-4 md:py-3 text-stone-600 dark:text-stone-400 hidden md:table-cell">{row.notes}</td>
                 </tr>
               ))}
               <tr className="bg-blue-50 dark:bg-blue-900/20 font-bold transition-colors">
-                <td className="px-4 py-3 text-blue-900 dark:text-blue-200">Total</td>
-                <td className="px-4 py-3 text-right text-blue-900 dark:text-blue-200 tabular-nums">${totalLow.toLocaleString()}</td>
-                <td className="px-4 py-3 text-right text-blue-900 dark:text-blue-200 tabular-nums">${totalHigh.toLocaleString()}</td>
-                <td className="px-4 py-3 hidden md:table-cell"></td>
+                <td className="px-3 py-2.5 md:px-4 md:py-3 text-blue-900 dark:text-blue-200">Total</td>
+                <td className="px-3 py-2.5 md:px-4 md:py-3 text-right text-blue-900 dark:text-blue-200 tabular-nums">${totalLow.toLocaleString()}</td>
+                <td className="px-3 py-2.5 md:px-4 md:py-3 text-right text-blue-900 dark:text-blue-200 tabular-nums">${totalHigh.toLocaleString()}</td>
+                <td className="px-3 py-2.5 md:px-4 md:py-3 hidden md:table-cell"></td>
               </tr>
             </tbody>
           </table>

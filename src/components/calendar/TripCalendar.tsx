@@ -21,7 +21,7 @@ export default function TripCalendar() {
   };
 
   return (
-    <div id="calendar" className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-7 md:gap-3" style={{ WebkitOverflowScrolling: 'touch' }}>
+    <div id="calendar" className="flex flex-col gap-3 md:grid md:grid-cols-7 md:gap-3">
       {itinerary.map((day) => {
         const cc = getCityColor(getCityFromLocation(day.location));
         return (
@@ -29,7 +29,7 @@ export default function TripCalendar() {
             key={day.day}
             href={`#day-${day.day}`}
             onClick={(e) => handleDayClick(e, day.day)}
-            className="card snap-center overflow-hidden text-left flex-shrink-0 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-150 block w-full md:w-auto md:h-[180px] md:min-w-0 flex flex-col"
+            className="card overflow-hidden text-left hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-150 block w-full md:h-[180px] flex flex-col"
           >
             <div className={`${cc.bg} ${cc.bgDark} px-3 pt-3 pb-2 transition-colors`}>
               <p className={`text-xs font-medium ${cc.textMuted} ${cc.textMutedDark}`}>{day.dayName}</p>

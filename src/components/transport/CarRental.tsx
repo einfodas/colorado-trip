@@ -8,21 +8,21 @@ export default function CarRental() {
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-stone-50 dark:bg-stone-800 border-b border-stone-200 dark:border-stone-700 transition-colors">
-                <th className="text-left px-4 py-3 font-medium text-stone-700 dark:text-stone-300">Company</th>
-                <th className="text-left px-4 py-3 font-medium text-stone-700 dark:text-stone-300">Vehicle</th>
-                <th className="text-left px-4 py-3 font-medium text-stone-700 dark:text-stone-300">Rate</th>
-                <th className="text-left px-4 py-3 font-medium text-stone-700 dark:text-stone-300">Total</th>
-                <th className="text-left px-4 py-3 font-medium text-stone-700 dark:text-stone-300 hidden md:table-cell">Notes</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">Company</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">Vehicle</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">Rate</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">Total</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300 hidden md:table-cell">Notes</th>
               </tr>
             </thead>
             <tbody>
               {carRentals.map((r) => (
                 <tr key={r.company} className="border-b border-stone-100 dark:border-stone-700 last:border-0 transition-colors">
-                  <td className="px-4 py-3 font-medium text-stone-900 dark:text-stone-100">{r.company}</td>
-                  <td className="px-4 py-3 text-stone-600 dark:text-stone-400">{r.vehicleType}</td>
-                  <td className="px-4 py-3 text-stone-600 dark:text-stone-400 tabular-nums">{r.dailyRate}</td>
-                  <td className="px-4 py-3 font-medium text-stone-900 dark:text-stone-100 tabular-nums">{r.total}</td>
-                  <td className="px-4 py-3 text-stone-600 dark:text-stone-400 hidden md:table-cell">{r.notes}</td>
+                  <td className="px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-900 dark:text-stone-100">{r.company}</td>
+                  <td className="px-3 py-2.5 md:px-4 md:py-3 text-stone-600 dark:text-stone-400">{r.vehicleType}</td>
+                  <td className="px-3 py-2.5 md:px-4 md:py-3 text-stone-600 dark:text-stone-400 tabular-nums">{r.dailyRate}</td>
+                  <td className="px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-900 dark:text-stone-100 tabular-nums">{r.total}</td>
+                  <td className="px-3 py-2.5 md:px-4 md:py-3 text-stone-600 dark:text-stone-400 hidden md:table-cell">{r.notes}</td>
                 </tr>
               ))}
             </tbody>

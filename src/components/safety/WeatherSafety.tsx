@@ -13,23 +13,23 @@ export default function WeatherSafety() {
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-stone-50 dark:bg-stone-800 border-b border-stone-200 dark:border-stone-700 transition-colors">
-                <th className="text-left px-4 py-3 font-medium text-stone-700 dark:text-stone-300">Location</th>
-                <th className="text-left px-4 py-3 font-medium text-stone-700 dark:text-stone-300">Elevation</th>
-                <th className="text-left px-4 py-3 font-medium text-stone-700 dark:text-stone-300">High</th>
-                <th className="text-left px-4 py-3 font-medium text-stone-700 dark:text-stone-300">Low</th>
-                <th className="text-left px-4 py-3 font-medium text-stone-700 dark:text-stone-300">Rain</th>
-                <th className="text-left px-4 py-3 font-medium text-stone-700 dark:text-stone-300 hidden md:table-cell">Notes</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">Location</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">Elevation</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">High</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">Low</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">Rain</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300 hidden md:table-cell">Notes</th>
               </tr>
             </thead>
             <tbody>
               {weatherData.map((w) => (
                 <tr key={w.location} className="border-b border-stone-100 dark:border-stone-700 last:border-0 transition-colors">
-                  <td className="px-4 py-3 font-medium text-stone-900 dark:text-stone-100">{w.location}</td>
-                  <td className="px-4 py-3 text-stone-600 dark:text-stone-400">{w.elevation}</td>
-                  <td className="px-4 py-3 text-stone-600 dark:text-stone-400">{w.avgHigh}</td>
-                  <td className="px-4 py-3 text-stone-600 dark:text-stone-400">{w.avgLow}</td>
-                  <td className="px-4 py-3 text-stone-600 dark:text-stone-400">{w.rainDays}</td>
-                  <td className="px-4 py-3 text-stone-600 dark:text-stone-400 hidden md:table-cell">{w.notes}</td>
+                  <td className="px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-900 dark:text-stone-100">{w.location}</td>
+                  <td className="px-3 py-2.5 md:px-4 md:py-3 text-stone-600 dark:text-stone-400">{w.elevation}</td>
+                  <td className="px-3 py-2.5 md:px-4 md:py-3 text-stone-600 dark:text-stone-400">{w.avgHigh}</td>
+                  <td className="px-3 py-2.5 md:px-4 md:py-3 text-stone-600 dark:text-stone-400">{w.avgLow}</td>
+                  <td className="px-3 py-2.5 md:px-4 md:py-3 text-stone-600 dark:text-stone-400">{w.rainDays}</td>
+                  <td className="px-3 py-2.5 md:px-4 md:py-3 text-stone-600 dark:text-stone-400 hidden md:table-cell">{w.notes}</td>
                 </tr>
               ))}
             </tbody>
