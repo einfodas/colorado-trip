@@ -6,9 +6,9 @@ import { beforeYouLeave } from "@/data/trip-data";
 const STORAGE_KEY = "colorado-trip-actions";
 
 const priorityColors = {
-  critical: { dot: "bg-red-600", badge: "bg-red-50 text-red-700" },
-  important: { dot: "bg-amber-500", badge: "bg-amber-50 text-amber-700" },
-  nice: { dot: "bg-emerald-500", badge: "bg-emerald-50 text-emerald-700" },
+  critical: { dot: "bg-red-600", badge: "bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400" },
+  important: { dot: "bg-amber-500", badge: "bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400" },
+  nice: { dot: "bg-emerald-500", badge: "bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400" },
 };
 
 function loadChecked(): Record<string, boolean> {
@@ -48,10 +48,11 @@ export default function ActionItems() {
                   type="checkbox"
                   checked={isChecked}
                   onChange={() => toggle(item.task)}
-                  className="w-5 h-5 rounded border-stone-300 text-blue-700 focus:ring-blue-500 mt-0.5"
+                  className="w-5 h-5 rounded border-stone-300 dark:border-stone-600 text-blue-700 dark:text-blue-500 focus:ring-blue-500 mt-0.5"
+                  style={{ touchAction: 'manipulation' }}
                 />
                 <div className="flex-1">
-                  <p className={`text-base ${isChecked ? "line-through text-stone-400" : "text-stone-900"}`}>
+                  <p className={`text-base ${isChecked ? "line-through text-stone-400 dark:text-stone-500" : "text-stone-900 dark:text-stone-100"}`}>
                     {item.task}
                   </p>
                   <div className="flex items-center gap-2 mt-1">
@@ -59,7 +60,7 @@ export default function ActionItems() {
                     <span className={`inline-flex px-2 py-0.5 rounded-full text-xs font-medium ${colors.badge}`}>
                       {item.priority}
                     </span>
-                    <span className="text-xs text-stone-500">{item.deadline}</span>
+                    <span className="text-xs text-stone-500 dark:text-stone-400">{item.deadline}</span>
                   </div>
                 </div>
               </label>

@@ -19,17 +19,17 @@ export default function DayTimeline() {
 
           <summary className="flex items-center justify-between px-4 py-3 md:px-6 md:py-4 cursor-pointer list-none select-none">
             <div>
-              <p className="text-base font-semibold text-stone-900">
+              <p className="text-base font-semibold text-stone-900 dark:text-stone-100">
                 Day {day.day} — {day.date}
               </p>
-              <p className="text-sm text-stone-600 mt-0.5">{day.theme}</p>
+              <p className="text-sm text-stone-600 dark:text-stone-400 mt-0.5">{day.theme}</p>
             </div>
             <div className="flex items-center gap-2 flex-shrink-0 ml-3">
-              <span className="hidden sm:inline-flex px-2.5 py-0.5 rounded-full text-xs font-medium bg-stone-100 text-stone-700">
+              <span className="hidden sm:inline-flex px-2.5 py-0.5 rounded-full text-xs font-medium bg-stone-100 dark:bg-stone-700 text-stone-700 dark:text-stone-300">
                 {day.location}
               </span>
               <svg
-                className="w-5 h-5 text-stone-400 transition-transform group-open:rotate-180"
+                className="w-5 h-5 text-stone-400 dark:text-stone-500 transition-transform group-open:rotate-180"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -47,11 +47,11 @@ export default function DayTimeline() {
               ))}
             </div>
 
-            <div className="mt-4 bg-stone-50 rounded-lg p-3">
-              <p className="text-sm font-medium text-stone-700">
+            <div className="mt-4 bg-stone-50 dark:bg-stone-800 rounded-lg p-3 transition-colors">
+              <p className="text-sm font-medium text-stone-700 dark:text-stone-300">
                 Driving: {day.driving}
               </p>
-              <p className="text-xs text-stone-500 mt-1">Total: {day.totalDriving}</p>
+              <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">Total: {day.totalDriving}</p>
             </div>
           </div>
         </details>

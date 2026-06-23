@@ -37,13 +37,13 @@ export default function PackingChecklist() {
         return (
           <div key={group.category} className="card p-4 md:p-6">
             <div className="flex items-center justify-between mb-3">
-              <h3 className="text-lg font-semibold text-stone-900">{group.category}</h3>
-              <span className="text-sm font-medium text-stone-500">
+              <h3 className="text-lg font-semibold text-stone-900 dark:text-stone-100">{group.category}</h3>
+              <span className="text-sm font-medium text-stone-500 dark:text-stone-400">
                 {done}/{total} packed
               </span>
             </div>
 
-            <div className="w-full bg-stone-100 rounded-full h-2 mb-4">
+            <div className="w-full bg-stone-100 dark:bg-stone-700 rounded-full h-2 mb-4 transition-colors">
               <div
                 className="bg-emerald-500 h-2 rounded-full transition-all"
                 style={{ width: `${total > 0 ? (done / total) * 100 : 0}%` }}
@@ -61,9 +61,10 @@ export default function PackingChecklist() {
                         type="checkbox"
                         checked={isChecked}
                         onChange={() => toggle(key)}
-                        className="w-5 h-5 rounded border-stone-300 text-blue-700 focus:ring-blue-500"
+                        className="w-5 h-5 rounded border-stone-300 dark:border-stone-600 text-blue-700 dark:text-blue-500 focus:ring-blue-500"
+                        style={{ touchAction: 'manipulation' }}
                       />
-                      <span className={`text-base ${isChecked ? "line-through text-stone-400" : "text-stone-700"}`}>
+                      <span className={`text-base ${isChecked ? "line-through text-stone-400 dark:text-stone-500" : "text-stone-700 dark:text-stone-300"}`}>
                         {item}
                       </span>
                     </label>

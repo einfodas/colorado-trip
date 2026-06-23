@@ -17,26 +17,26 @@ export default function BudgetBreakdown() {
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-stone-50 border-b border-stone-200">
-                <th className="text-left px-4 py-3 font-medium text-stone-700">Category</th>
-                <th className="text-right px-4 py-3 font-medium text-stone-700">Low</th>
-                <th className="text-right px-4 py-3 font-medium text-stone-700">High</th>
-                <th className="text-left px-4 py-3 font-medium text-stone-700 hidden md:table-cell">Notes</th>
+              <tr className="bg-stone-50 dark:bg-stone-800 border-b border-stone-200 dark:border-stone-700 transition-colors">
+                <th className="text-left px-4 py-3 font-medium text-stone-700 dark:text-stone-300">Category</th>
+                <th className="text-right px-4 py-3 font-medium text-stone-700 dark:text-stone-300">Low</th>
+                <th className="text-right px-4 py-3 font-medium text-stone-700 dark:text-stone-300">High</th>
+                <th className="text-left px-4 py-3 font-medium text-stone-700 dark:text-stone-300 hidden md:table-cell">Notes</th>
               </tr>
             </thead>
             <tbody>
               {budgetRows.map((row) => (
-                <tr key={row.category} className="border-b border-stone-100 last:border-0">
-                  <td className="px-4 py-3 font-medium text-stone-900">{row.category}</td>
-                  <td className="px-4 py-3 text-right text-stone-600">{row.low}</td>
-                  <td className="px-4 py-3 text-right text-stone-600">{row.high}</td>
-                  <td className="px-4 py-3 text-stone-600 hidden md:table-cell">{row.notes}</td>
+                <tr key={row.category} className="border-b border-stone-100 dark:border-stone-700 last:border-0 transition-colors">
+                  <td className="px-4 py-3 font-medium text-stone-900 dark:text-stone-100">{row.category}</td>
+                  <td className="px-4 py-3 text-right text-stone-600 dark:text-stone-400">{row.low}</td>
+                  <td className="px-4 py-3 text-right text-stone-600 dark:text-stone-400">{row.high}</td>
+                  <td className="px-4 py-3 text-stone-600 dark:text-stone-400 hidden md:table-cell">{row.notes}</td>
                 </tr>
               ))}
-              <tr className="bg-stone-50 font-bold">
-                <td className="px-4 py-3 text-stone-900">Total</td>
-                <td className="px-4 py-3 text-right text-stone-900">${totalLow.toLocaleString()}</td>
-                <td className="px-4 py-3 text-right text-stone-900">${totalHigh.toLocaleString()}</td>
+              <tr className="bg-stone-50 dark:bg-stone-800 font-bold transition-colors">
+                <td className="px-4 py-3 text-stone-900 dark:text-stone-100">Total</td>
+                <td className="px-4 py-3 text-right text-stone-900 dark:text-stone-100">${totalLow.toLocaleString()}</td>
+                <td className="px-4 py-3 text-right text-stone-900 dark:text-stone-100">${totalHigh.toLocaleString()}</td>
                 <td className="px-4 py-3 hidden md:table-cell"></td>
               </tr>
             </tbody>
@@ -45,11 +45,11 @@ export default function BudgetBreakdown() {
       </div>
 
       <div className="card p-4 md:p-6">
-        <h3 className="text-lg font-semibold text-stone-900 mb-3">Cost-Saving Strategies</h3>
+        <h3 className="text-lg font-semibold text-stone-900 dark:text-stone-100 mb-3">Cost-Saving Strategies</h3>
         <ul className="space-y-2">
           {costSavingStrategies.map((tip, i) => (
-            <li key={i} className="text-sm text-stone-600 flex gap-2">
-              <span className="text-emerald-500 flex-shrink-0">•</span>
+            <li key={i} className="text-sm text-stone-600 dark:text-stone-400 flex gap-2">
+              <span className="text-emerald-500 dark:text-emerald-400 flex-shrink-0">•</span>
               <span>{tip}</span>
             </li>
           ))}

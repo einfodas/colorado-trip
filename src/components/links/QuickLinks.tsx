@@ -10,7 +10,7 @@ export default function QuickLinks() {
         if (catLinks.length === 0) return null;
         return (
           <div key={cat} className="card p-4 md:p-6">
-            <h3 className="text-lg font-semibold text-stone-900 mb-3">{cat}</h3>
+            <h3 className="text-lg font-semibold text-stone-900 dark:text-stone-100 mb-3">{cat}</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {catLinks.map((link) => (
                 <a
@@ -18,7 +18,8 @@ export default function QuickLinks() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-3 py-2 text-sm text-blue-700 hover:bg-blue-50 rounded-lg transition-colors"
+                  className="flex items-center gap-2 px-3 py-2 text-sm text-blue-700 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg transition-colors"
+                  style={{ touchAction: 'manipulation' }}
                 >
                   <span className="truncate">{link.label}</span>
                   <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

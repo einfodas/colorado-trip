@@ -10,13 +10,13 @@ const navItems = [
 
 export default function MobileNav() {
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-stone-200 safe-area-bottom">
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-stone-900 border-t border-stone-200 dark:border-stone-700 safe-area-bottom transition-colors">
       <div className="flex items-center justify-around h-16">
         {navItems.map((item) => (
           <a
             key={item.href}
             href={item.href}
-            className="flex flex-col items-center justify-center w-full h-full text-stone-500 active:text-blue-700 min-w-[44px] cursor-pointer"
+            className="flex flex-col items-center justify-center w-full h-full text-stone-500 dark:text-stone-400 active:text-blue-700 dark:active:text-blue-400 min-w-[44px] cursor-pointer"
             style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'rgba(59, 130, 246, 0.2)' }}
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

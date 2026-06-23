@@ -5,46 +5,46 @@ function AttractionCard({ attraction }: { attraction: Attraction }) {
   return (
     <div className="card p-4 md:p-6">
       <div className="flex items-start justify-between gap-2">
-        <h3 className="text-lg font-semibold text-stone-900">{attraction.name}</h3>
+        <h3 className="text-lg font-semibold text-stone-900 dark:text-stone-100">{attraction.name}</h3>
         <div className="flex gap-1.5 flex-shrink-0">
-          <span className="inline-flex px-2.5 py-0.5 rounded-full text-xs font-medium bg-stone-100 text-stone-700">
+          <span className="inline-flex px-2.5 py-0.5 rounded-full text-xs font-medium bg-stone-100 dark:bg-stone-700 text-stone-700 dark:text-stone-300">
             {attraction.city}
           </span>
           {attraction.free && (
-            <span className="inline-flex px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700">
+            <span className="inline-flex px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400">
               FREE
             </span>
           )}
         </div>
       </div>
 
-      <p className="text-sm text-stone-600 mt-1">{attraction.location}</p>
+      <p className="text-sm text-stone-600 dark:text-stone-400 mt-1">{attraction.location}</p>
       {attraction.distanceFromDEN && (
-        <p className="text-xs text-stone-500 mt-0.5">From DEN: {attraction.distanceFromDEN}</p>
+        <p className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">From DEN: {attraction.distanceFromDEN}</p>
       )}
-      <p className="text-sm text-stone-600 mt-1">Duration: {attraction.duration}</p>
+      <p className="text-sm text-stone-600 dark:text-stone-400 mt-1">Duration: {attraction.duration}</p>
 
       <div className="mt-3">
-        <p className="text-xs font-medium text-stone-500 uppercase tracking-wide">Pricing</p>
+        <p className="text-xs font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wide">Pricing</p>
         <ul className="mt-1 space-y-0.5">
           {attraction.pricing.map((p, i) => (
-            <li key={i} className="text-sm text-stone-700">{p}</li>
+            <li key={i} className="text-sm text-stone-700 dark:text-stone-300">{p}</li>
           ))}
         </ul>
       </div>
 
-      <div className="mt-3 bg-emerald-50 border border-emerald-200 rounded-lg p-3">
-        <p className="text-xs font-medium text-emerald-700 uppercase tracking-wide">Why for Aria</p>
-        <p className="text-sm text-emerald-800 mt-1">{attraction.whyForAria}</p>
+      <div className="mt-3 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-3 transition-colors">
+        <p className="text-xs font-medium text-emerald-700 dark:text-emerald-400 uppercase tracking-wide">Why for Aria</p>
+        <p className="text-sm text-emerald-800 dark:text-emerald-300 mt-1">{attraction.whyForAria}</p>
       </div>
 
       {attraction.tips.length > 0 && (
         <div className="mt-3">
-          <p className="text-xs font-medium text-stone-500 uppercase tracking-wide">Tips</p>
+          <p className="text-xs font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wide">Tips</p>
           <ul className="mt-1 space-y-1">
             {attraction.tips.map((tip, i) => (
-              <li key={i} className="text-sm text-stone-600 flex gap-2">
-                <span className="text-stone-400 flex-shrink-0">•</span>
+              <li key={i} className="text-sm text-stone-600 dark:text-stone-400 flex gap-2">
+                <span className="text-stone-400 dark:text-stone-500 flex-shrink-0">•</span>
                 <span>{tip}</span>
               </li>
             ))}
@@ -57,7 +57,7 @@ function AttractionCard({ attraction }: { attraction: Attraction }) {
           href={attraction.website}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-blue-700 border border-blue-200 rounded-lg hover:bg-blue-50 transition-colors"
+          className="mt-4 inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-700 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors"
         >
           {attraction.websiteLabel || attraction.website}
           <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
