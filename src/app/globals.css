@@ -78,3 +78,41 @@ details > summary::-webkit-details-marker {
     transition: background-color 0.2s, border-color 0.2s;
   }
 }
+
+/* ============================================
+   iOS Safari Touch Event Fixes
+   Root cause: sticky + z-index creates GPU
+   compositing layers that swallow touch events
+   ============================================ */
+
+/* Mobile nav: hidden by default, shown via :target */
+.mobile-nav {
+  display: none;
+}
+.mobile-nav:target {
+  display: block;
+}
+
+/* All interactive elements: force iOS to treat touches as clicks */
+button,
+a,
+[role="button"],
+summary,
+label {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Header buttons: create separate compositing layer above sticky container */
+header button,
+header a[aria-label] {
+  position: relative;
+  z-index: 60;
+  -webkit-touch-callout: none;
+}
+
+/* Ensure mobile nav is above everything when targeted */
+.mobile-nav:target {
+  position: relative;
+  z-index: 55;
+}
