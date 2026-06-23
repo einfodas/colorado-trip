@@ -95,13 +95,7 @@ details > summary::-webkit-details-marker {
    compositing layers that swallow touch events
    ============================================ */
 
-/* Mobile nav: hidden by default, shown via :target */
-.mobile-nav {
-  display: none;
-}
-.mobile-nav:target {
-  display: block;
-}
+/* Mobile nav is now controlled by React state in Header.tsx */
 
 /* All interactive elements: force iOS to treat touches as clicks */
 button,
@@ -121,8 +115,4 @@ header a[aria-label] {
   -webkit-touch-callout: none;
 }
 
-/* Ensure mobile nav is above everything when targeted */
-.mobile-nav:target {
-  position: relative;
-  z-index: 55;
-}
+/* Mobile nav z-index handled by React conditional rendering */

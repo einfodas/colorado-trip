@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { tripMeta } from "@/data/trip-data";
 import { useTheme } from "@/hooks/useTheme";
 
@@ -20,25 +21,22 @@ const navLinks = [
 
 export default function Header() {
   const { theme, toggle } = useTheme();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    console.log('[Header] Nav clicked:', href);
+    setMobileMenuOpen(false);
     const id = href.replace('#', '');
     const element = document.getElementById(id);
-    console.log('[Header] Element found:', !!element, 'id:', id);
     if (element) {
       const rect = element.getBoundingClientRect();
       const offset = 80;
       const targetScroll = rect.top + window.scrollY - offset;
-      console.log('[Header] Scrolling to:', targetScroll);
       window.scrollTo({
         top: targetScroll,
         behavior: 'instant'
       });
-      // Update URL hash without triggering navigation
       window.history.pushState(null, '', href);
-      console.log('[Header] Scroll complete, scrollY:', window.scrollY);
     }
   };
 
@@ -82,6 +80,7 @@ export default function Header() {
             onClick={toggle}
             className="flex items-center justify-center w-11 h-11 text-stone-600 dark:text-stone-400"
             aria-label="Toggle theme"
+            style={{ touchAction: 'manipulation' }}
           >
             {theme === "dark" ? (
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -93,33 +92,41 @@ export default function Header() {
               </svg>
             )}
           </button>
-          <a
-            href="#mobile-nav"
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="flex items-center justify-center w-11 h-11 text-stone-600 dark:text-stone-400"
             aria-label="Toggle menu"
+            style={{ touchAction: 'manipulation' }}
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
-          </a>
+          </button>
         </div>
       </div>
 
-      <nav id="mobile-nav" className="mobile-nav md:hidden border-t border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-4 py-2 transition-colors">
-        <a href="#" className="block text-right px-3 py-2 text-stone-500 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 text-sm">
-          ✕ Close
-        </a>
-        {navLinks.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            onClick={(e) => handleNavClick(e, link.href)}
-            className="block px-3 py-2.5 text-base text-stone-700 dark:text-stone-300 hover:text-blue-700 dark:hover:text-blue-400 hover:bg-stone-50 dark:hover:bg-stone-800 rounded-lg"
+      {mobileMenuOpen && (
+        <nav className="md:hidden border-t border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-4 py-2 transition-colors">
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="block w-full text-right px-3 py-2 text-stone-500 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 text-sm"
+            style={{ touchAction: 'manipulation' }}
           >
-            {link.label}
-          </a>
-        ))}
-      </nav>
+            ✕ Close
+          </button>
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
+              className="block px-3 py-2.5 text-base text-stone-700 dark:text-stone-300 hover:text-blue-700 dark:hover:text-blue-400 hover:bg-stone-50 dark:hover:bg-stone-800 rounded-lg"
+              style={{ touchAction: 'manipulation' }}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      )}
     </header>
   );
 }
