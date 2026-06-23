@@ -24,8 +24,22 @@ body {
   font-family: var(--font-sans);
 }
 
-section[id] {
+section[id],
+details[id] {
   scroll-margin-top: 4rem;
+}
+
+/* Hide default details marker in WebKit */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Safe area for mobile bottom nav */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 @layer utilities {
