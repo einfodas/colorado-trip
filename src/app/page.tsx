@@ -15,6 +15,7 @@ import PackingChecklist from "@/components/packing/PackingChecklist";
 import BudgetBreakdown from "@/components/budget/BudgetBreakdown";
 import QuickLinks from "@/components/links/QuickLinks";
 import ActionItems from "@/components/actions/ActionItems";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
@@ -74,6 +75,7 @@ export default function Home() {
           <ActionItems />
         </Section>
       </main>
+      <Footer />
       <MobileNav />
     </>
   );

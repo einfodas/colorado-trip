@@ -54,7 +54,7 @@ export default function CarRental() {
         <ul className="space-y-2">
           <li className="text-sm text-stone-600 dark:text-stone-400 flex gap-2">
             <span className="text-stone-400 dark:text-stone-500 flex-shrink-0">•</span>
-            <span>Book ASAP — July is peak season, SUVs sell out</span>
+            <span>Book ASAP, July is peak season, SUVs sell out</span>
           </li>
           <li className="text-sm text-stone-600 dark:text-stone-400 flex gap-2">
             <span className="text-stone-400 dark:text-stone-500 flex-shrink-0">•</span>

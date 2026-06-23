@@ -20,7 +20,7 @@ export default function DayTimeline() {
           <summary className="flex items-center justify-between px-4 py-3 md:px-6 md:py-4 cursor-pointer list-none select-none">
             <div>
               <p className="text-base font-semibold text-stone-900 dark:text-stone-100">
-                Day {day.day} — {day.date}
+                Day {day.day}: {day.date}
               </p>
               <p className="text-sm text-stone-600 dark:text-stone-400 mt-0.5">{day.theme}</p>
             </div>
