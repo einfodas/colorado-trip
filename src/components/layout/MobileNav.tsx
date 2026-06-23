@@ -8,6 +8,27 @@ const navItems = [
   { label: "Checklist", href: "#packing", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" },
 ];
 
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute("data-theme") || "light";
+  const next = current === "light" ? "dark" : "light";
+  html.setAttribute("data-theme", next);
+  localStorage.setItem("theme", next);
+  updateThemeIcons(next);
+}
+
+function updateThemeIcons(theme: string) {
+  const sunIcons = document.querySelectorAll<HTMLElement>(".theme-sun");
+  const moonIcons = document.querySelectorAll<HTMLElement>(".theme-moon");
+  if (theme === "dark") {
+    sunIcons.forEach((el) => el.classList.remove("hidden"));
+    moonIcons.forEach((el) => el.classList.add("hidden"));
+  } else {
+    sunIcons.forEach((el) => el.classList.add("hidden"));
+    moonIcons.forEach((el) => el.classList.remove("hidden"));
+  }
+}
+
 export default function MobileNav() {
   return (
     <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-stone-900 border-t border-stone-200 dark:border-stone-700 safe-area-bottom transition-colors">
@@ -25,6 +46,20 @@ export default function MobileNav() {
             <span className="text-[10px] mt-0.5 font-medium">{item.label}</span>
           </a>
         ))}
+        <button
+          onClick={toggleTheme}
+          className="flex flex-col items-center justify-center w-full h-full text-stone-500 dark:text-stone-400 active:text-blue-700 dark:active:text-blue-400 min-w-[44px] cursor-pointer"
+          style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'rgba(59, 130, 246, 0.2)' }}
+          aria-label="Toggle theme"
+        >
+          <svg className="w-6 h-6 theme-sun hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <svg className="w-6 h-6 theme-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+          <span className="text-[10px] mt-0.5 font-medium">Theme</span>
+        </button>
       </div>
     </nav>
   );

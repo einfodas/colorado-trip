@@ -40,7 +40,7 @@ function updateThemeIcons(theme: string) {
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 bg-white dark:bg-stone-900 border-b border-stone-200 dark:border-stone-700 transition-colors">
+    <header className="static md:sticky top-0 z-50 bg-white dark:bg-stone-900 border-b border-stone-200 dark:border-stone-700 transition-colors">
       <div className="flex items-center justify-between h-14 px-4 max-w-6xl mx-auto">
         <a href="#" className="text-lg font-semibold tracking-tight text-stone-900 dark:text-stone-100">
           {tripMeta.title}
