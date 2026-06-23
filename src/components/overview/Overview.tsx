@@ -11,16 +11,16 @@ export default function Overview() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="bg-stone-50 dark:bg-stone-800 rounded-lg p-3 transition-colors">
-            <p className="text-xs font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wide">Family</p>
+          <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3 transition-colors">
+            <p className="text-xs font-medium text-blue-700 dark:text-blue-300 uppercase tracking-wide">Family</p>
             <p className="text-base text-stone-900 dark:text-stone-100 mt-1">{tripMeta.family.join(", ")}</p>
           </div>
-          <div className="bg-stone-50 dark:bg-stone-800 rounded-lg p-3 transition-colors">
-            <p className="text-xs font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wide">Budget</p>
+          <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-lg p-3 transition-colors">
+            <p className="text-xs font-medium text-emerald-700 dark:text-emerald-300 uppercase tracking-wide">Budget</p>
             <p className="text-base text-stone-900 dark:text-stone-100 mt-1">{tripMeta.budgetRange}</p>
           </div>
-          <div className="bg-stone-50 dark:bg-stone-800 rounded-lg p-3 transition-colors">
-            <p className="text-xs font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wide">Base Cities</p>
+          <div className="bg-amber-50 dark:bg-amber-900/20 rounded-lg p-3 transition-colors">
+            <p className="text-xs font-medium text-amber-700 dark:text-amber-300 uppercase tracking-wide">Base Cities</p>
             <p className="text-base text-stone-900 dark:text-stone-100 mt-1">{tripMeta.baseCities}</p>
           </div>
         </div>

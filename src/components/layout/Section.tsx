@@ -15,8 +15,9 @@ export default function Section({
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-stone-900 dark:text-stone-100">
           {title}
         </h2>
+        <div className="h-0.5 w-12 rounded-full bg-stone-300 dark:bg-stone-600 mt-2 transition-colors" />
         {subtitle && (
-          <p className="mt-1 text-base text-stone-600 dark:text-stone-400">{subtitle}</p>
+          <p className="mt-2 text-base text-stone-600 dark:text-stone-400">{subtitle}</p>
         )}
       </div>
       {children}

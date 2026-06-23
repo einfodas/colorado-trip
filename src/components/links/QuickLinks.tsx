@@ -1,16 +1,23 @@
 import { quickLinks } from "@/data/trip-data";
+import { getCityColor } from "@/lib/colors";
 
-const categories = ["Attractions", "Hotels", "Car Rental", "Weather & Safety"];
+const categories: { name: string; city: string }[] = [
+  { name: "Attractions", city: "Denver" },
+  { name: "Hotels", city: "Estes Park" },
+  { name: "Car Rental", city: "Colorado Springs" },
+  { name: "Weather & Safety", city: "Boulder" },
+];
 
 export default function QuickLinks() {
   return (
     <div className="flex flex-col gap-6">
-      {categories.map((cat) => {
+      {categories.map(({ name: cat, city }) => {
         const catLinks = quickLinks.filter((l) => l.category === cat);
         if (catLinks.length === 0) return null;
+        const cc = getCityColor(city);
         return (
           <div key={cat} className="card p-4 md:p-6">
-            <h3 className="text-lg font-semibold text-stone-900 dark:text-stone-100 mb-3">{cat}</h3>
+            <h3 className={`inline-flex px-3 py-1 rounded-lg text-base font-semibold ${cc.bg} ${cc.bgDark} ${cc.text} ${cc.textDark} mb-3 transition-colors`}>{cat}</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {catLinks.map((link) => (
                 <a

@@ -33,10 +33,10 @@ export default function BudgetBreakdown() {
                   <td className="px-4 py-3 text-stone-600 dark:text-stone-400 hidden md:table-cell">{row.notes}</td>
                 </tr>
               ))}
-              <tr className="bg-stone-50 dark:bg-stone-800 font-bold transition-colors">
-                <td className="px-4 py-3 text-stone-900 dark:text-stone-100">Total</td>
-                <td className="px-4 py-3 text-right text-stone-900 dark:text-stone-100">${totalLow.toLocaleString()}</td>
-                <td className="px-4 py-3 text-right text-stone-900 dark:text-stone-100">${totalHigh.toLocaleString()}</td>
+              <tr className="bg-blue-50 dark:bg-blue-900/20 font-bold transition-colors">
+                <td className="px-4 py-3 text-blue-900 dark:text-blue-200">Total</td>
+                <td className="px-4 py-3 text-right text-blue-900 dark:text-blue-200">${totalLow.toLocaleString()}</td>
+                <td className="px-4 py-3 text-right text-blue-900 dark:text-blue-200">${totalHigh.toLocaleString()}</td>
                 <td className="px-4 py-3 hidden md:table-cell"></td>
               </tr>
             </tbody>

@@ -1,5 +1,6 @@
 import { MapPin, DollarSign, Car, ExternalLink } from "lucide-react";
 import { hotels } from "@/data/trip-data";
+import { getCityColor } from "@/lib/colors";
 
 const cities = ["Denver", "Estes Park", "Colorado Springs"];
 
@@ -73,9 +74,10 @@ export default function HotelCards() {
       {cities.map((city) => {
         const cityHotels = hotels.filter((h) => h.city === city);
         if (cityHotels.length === 0) return null;
+        const cc = getCityColor(city);
         return (
           <div key={city}>
-            <h3 className="text-lg font-semibold text-stone-900 dark:text-stone-100 mb-3">{city}</h3>
+            <h3 className={`inline-flex px-3 py-1 rounded-lg text-base font-semibold ${cc.bg} ${cc.bgDark} ${cc.text} ${cc.textDark} mb-3 transition-colors`}>{city}</h3>
             <div className="grid grid-cols-1 gap-4">
               {cityHotels.map((hotel) => (
                 <HotelCard key={hotel.name} hotel={hotel} />

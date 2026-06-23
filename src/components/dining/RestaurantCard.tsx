@@ -1,5 +1,6 @@
 import { MapPin, DollarSign, UtensilsCrossed, ExternalLink } from "lucide-react";
 import { restaurants } from "@/data/trip-data";
+import { getCityColor } from "@/lib/colors";
 
 const cities = ["Denver", "Boulder", "Estes Park", "Colorado Springs"];
 
@@ -45,9 +46,10 @@ export default function RestaurantCards() {
       {cities.map((city) => {
         const cityRestaurants = restaurants.filter((r) => r.city === city);
         if (cityRestaurants.length === 0) return null;
+        const cc = getCityColor(city);
         return (
           <div key={city}>
-            <h3 className="text-lg font-semibold text-stone-900 dark:text-stone-100 mb-3">{city}</h3>
+            <h3 className={`inline-flex px-3 py-1 rounded-lg text-base font-semibold ${cc.bg} ${cc.bgDark} ${cc.text} ${cc.textDark} mb-3 transition-colors`}>{city}</h3>
             <div className="grid grid-cols-1 gap-3">
               {cityRestaurants.map((restaurant) => (
                 <RestaurantCard key={restaurant.name} restaurant={restaurant} />
