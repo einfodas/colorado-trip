@@ -1,5 +1,20 @@
 import type { Metadata } from "next";
+import { DM_Serif_Display, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+
+const dmSerif = DM_Serif_Display({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-dm-serif",
+});
+
+const plusJakarta = Plus_Jakarta_Sans({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-plus-jakarta",
+});
 
 export const metadata: Metadata = {
   title: "Colorado Family Vacation — July 29 – Aug 4, 2026",
@@ -12,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en" className={`h-full antialiased ${dmSerif.variable} ${plusJakarta.variable}`}>
       <head>
         <script
           dangerouslySetInnerHTML={{

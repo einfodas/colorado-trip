@@ -26,17 +26,17 @@ export default function BudgetBreakdown() {
             </thead>
             <tbody>
               {budgetRows.map((row) => (
-                <tr key={row.category} className="border-b border-stone-100 dark:border-stone-700 last:border-0 transition-colors">
+                <tr key={row.category} className="border-b border-stone-100 dark:border-stone-700 last:border-0 hover:bg-stone-50 dark:hover:bg-stone-800/50 transition-colors">
                   <td className="px-4 py-3 font-medium text-stone-900 dark:text-stone-100">{row.category}</td>
-                  <td className="px-4 py-3 text-right text-stone-600 dark:text-stone-400">{row.low}</td>
-                  <td className="px-4 py-3 text-right text-stone-600 dark:text-stone-400">{row.high}</td>
+                  <td className="px-4 py-3 text-right text-stone-600 dark:text-stone-400 tabular-nums">{row.low}</td>
+                  <td className="px-4 py-3 text-right text-stone-600 dark:text-stone-400 tabular-nums">{row.high}</td>
                   <td className="px-4 py-3 text-stone-600 dark:text-stone-400 hidden md:table-cell">{row.notes}</td>
                 </tr>
               ))}
               <tr className="bg-blue-50 dark:bg-blue-900/20 font-bold transition-colors">
                 <td className="px-4 py-3 text-blue-900 dark:text-blue-200">Total</td>
-                <td className="px-4 py-3 text-right text-blue-900 dark:text-blue-200">${totalLow.toLocaleString()}</td>
-                <td className="px-4 py-3 text-right text-blue-900 dark:text-blue-200">${totalHigh.toLocaleString()}</td>
+                <td className="px-4 py-3 text-right text-blue-900 dark:text-blue-200 tabular-nums">${totalLow.toLocaleString()}</td>
+                <td className="px-4 py-3 text-right text-blue-900 dark:text-blue-200 tabular-nums">${totalHigh.toLocaleString()}</td>
                 <td className="px-4 py-3 hidden md:table-cell"></td>
               </tr>
             </tbody>
@@ -45,7 +45,7 @@ export default function BudgetBreakdown() {
       </div>
 
       <div className="card p-4 md:p-6">
-        <h3 className="text-lg font-semibold text-stone-900 dark:text-stone-100 mb-3">Cost-Saving Strategies</h3>
+        <h3 className="font-display text-lg font-normal tracking-tight leading-tight text-stone-900 dark:text-stone-100 mb-3">Cost-Saving Strategies</h3>
         <ul className="space-y-2">
           {costSavingStrategies.map((tip, i) => (
             <li key={i} className="text-sm text-stone-600 dark:text-stone-400 flex gap-2">

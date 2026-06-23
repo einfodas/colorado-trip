@@ -6,9 +6,9 @@ const cities = ["Denver", "Estes Park", "Colorado Springs"];
 
 function HotelCard({ hotel }: { hotel: typeof hotels[0] }) {
   return (
-    <div className="card p-4 md:p-6">
+    <div className="card p-4 md:p-6 hover:shadow-md transition-shadow duration-200">
       <div className="flex items-start justify-between gap-2">
-        <h3 className="text-lg font-semibold text-stone-900 dark:text-stone-100">{hotel.name}</h3>
+        <h3 className="font-display text-lg font-normal tracking-tight leading-tight text-stone-900 dark:text-stone-100">{hotel.name}</h3>
         <div className="flex gap-1.5 flex-shrink-0">
           <span className="inline-flex px-2.5 py-0.5 rounded-full text-xs font-medium bg-stone-100 dark:bg-stone-700 text-stone-700 dark:text-stone-300">
             {hotel.city}
@@ -25,7 +25,7 @@ function HotelCard({ hotel }: { hotel: typeof hotels[0] }) {
         <MapPin className="w-4 h-4 inline mr-1" />
         {hotel.address}
       </p>
-      <p className="text-sm font-medium text-stone-900 dark:text-stone-100 mt-2 flex items-center gap-1">
+      <p className="text-sm font-medium text-stone-900 dark:text-stone-100 mt-2 flex items-center gap-1 tabular-nums">
         <DollarSign className="w-4 h-4 inline mr-1" />
         {hotel.rate}
       </p>
@@ -47,7 +47,8 @@ function HotelCard({ hotel }: { hotel: typeof hotels[0] }) {
           href={hotel.booking}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-700 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors"
+          className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-700 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 active:scale-[0.97] transition-all duration-150"
+          style={{ touchAction: "manipulation" }}
         >
           {hotel.bookingLabel}
           <ExternalLink className="w-4 h-4" />
@@ -57,7 +58,8 @@ function HotelCard({ hotel }: { hotel: typeof hotels[0] }) {
             href={hotel.mapUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-700 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors"
+            className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-700 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 active:scale-[0.97] transition-all duration-150"
+            style={{ touchAction: "manipulation" }}
           >
             View on Map
             <ExternalLink className="w-4 h-4" />

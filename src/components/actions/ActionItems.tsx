@@ -43,7 +43,7 @@ export default function ActionItems() {
           const colors = priorityColors[item.priority as keyof typeof priorityColors];
           return (
             <li key={item.task}>
-              <label className="flex items-start gap-3 cursor-pointer">
+              <label className="flex items-start gap-3 cursor-pointer active:scale-[0.98] transition-transform duration-100">
                 <input
                   type="checkbox"
                   checked={isChecked}

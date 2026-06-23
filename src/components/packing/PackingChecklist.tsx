@@ -37,8 +37,8 @@ export default function PackingChecklist() {
         return (
           <div key={group.category} className="card p-4 md:p-6">
             <div className="flex items-center justify-between mb-3">
-              <h3 className="text-lg font-semibold text-stone-900 dark:text-stone-100">{group.category}</h3>
-              <span className="text-sm font-medium text-stone-500 dark:text-stone-400">
+              <h3 className="font-display text-lg font-normal tracking-tight leading-tight text-stone-900 dark:text-stone-100">{group.category}</h3>
+              <span className="text-sm font-medium text-stone-500 dark:text-stone-400 tabular-nums">
                 {done}/{total} packed
               </span>
             </div>
@@ -56,7 +56,7 @@ export default function PackingChecklist() {
                 const isChecked = !!checked[key];
                 return (
                   <li key={item}>
-                    <label className="flex items-center gap-3 cursor-pointer">
+                    <label className="flex items-center gap-3 cursor-pointer active:scale-[0.98] transition-transform duration-100">
                       <input
                         type="checkbox"
                         checked={isChecked}
@@ -64,7 +64,7 @@ export default function PackingChecklist() {
                         className="w-5 h-5 rounded border-stone-300 dark:border-stone-600 text-blue-700 dark:text-blue-500 focus:ring-blue-500"
                         style={{ touchAction: 'manipulation' }}
                       />
-                      <span className={`text-base ${isChecked ? "line-through text-stone-400 dark:text-stone-500" : "text-stone-700 dark:text-stone-300"}`}>
+                      <span className={`text-base leading-relaxed ${isChecked ? "line-through text-stone-400 dark:text-stone-500" : "text-stone-700 dark:text-stone-300"}`}>
                         {item}
                       </span>
                     </label>

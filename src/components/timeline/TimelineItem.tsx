@@ -28,7 +28,7 @@ export default function TimelineItem({
               href={item.mapUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center text-stone-500 dark:text-stone-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="inline-flex items-center justify-center text-stone-500 dark:text-stone-400 hover:text-blue-600 dark:hover:text-blue-400 active:scale-90 transition-transform duration-150"
               style={{ touchAction: "manipulation", minHeight: 44, minWidth: 44 }}
               aria-label={`Open ${item.activity} in Google Maps`}
             >
@@ -40,7 +40,7 @@ export default function TimelineItem({
           <p className="text-sm text-stone-600 dark:text-stone-400 mt-0.5">{item.notes}</p>
         )}
         {item.pricing && (
-          <p className="text-xs font-medium text-amber-700 dark:text-amber-400 mt-1 flex items-center gap-1">
+          <p className="text-xs font-medium text-amber-700 dark:text-amber-400 mt-1 flex items-center gap-1 tabular-nums">
             <DollarSign className="w-4 h-4 inline" />
             {item.pricing}
           </p>
