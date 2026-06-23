@@ -43,8 +43,9 @@ export default function WeatherSafety() {
           <div key={idx} className="card overflow-hidden">
             <button
               onClick={() => setExpandedRule(expandedRule === idx ? null : idx)}
-              className="w-full flex items-center justify-between px-4 py-3 text-left"
+              className="w-full flex items-center justify-between px-4 py-3 text-left cursor-pointer hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors"
               style={{ touchAction: 'manipulation' }}
+              type="button"
             >
               <span className="text-base font-medium text-stone-900 dark:text-stone-100">{rule.rule}</span>
               <svg

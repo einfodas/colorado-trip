@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 import MobileNav from "@/components/layout/MobileNav";
+import ScrollHandler from "@/components/layout/ScrollHandler";
 import Section from "@/components/layout/Section";
 import Overview from "@/components/overview/Overview";
 import TripCalendar from "@/components/calendar/TripCalendar";
@@ -18,6 +19,7 @@ import ActionItems from "@/components/actions/ActionItems";
 export default function Home() {
   return (
     <>
+      <ScrollHandler />
       <Header />
       <main className="pb-20 md:pb-0">
         <Section id="overview" title="Trip Overview">
