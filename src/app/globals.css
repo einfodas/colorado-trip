@@ -126,3 +126,5 @@ header a[aria-label] {
   position: relative;
   z-index: 55;
 }
+/* cache bust */
+body::after { content: 'v2'; display: none; }
