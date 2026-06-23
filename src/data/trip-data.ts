@@ -178,6 +178,7 @@ export type Attraction = {
   city: string;
   free?: boolean;
   highlight?: boolean;
+  mapUrl?: string;
 };
 
 export const attractions: Attraction[] = [
@@ -192,6 +193,7 @@ export const attractions: Attraction[] = [
     website: "https://www.denverzoo.org",
     websiteLabel: "denverzoo.org",
     city: "Denver",
+    mapUrl: "https://maps.google.com/?q=2900+E+23rd+Ave,+Denver,+CO+80205",
   },
   {
     name: "Denver Museum of Nature & Science",
@@ -205,6 +207,7 @@ export const attractions: Attraction[] = [
     websiteLabel: "dmns.org",
     city: "Denver",
     highlight: true,
+    mapUrl: "https://maps.google.com/?q=2001+Colorado+Blvd,+Denver,+CO+80205",
   },
   {
     name: "Children's Museum of Denver",
@@ -217,6 +220,7 @@ export const attractions: Attraction[] = [
     website: "https://www.childrensmuseumdenver.org",
     websiteLabel: "childrensmuseumdenver.org",
     city: "Denver",
+    mapUrl: "https://maps.google.com/?q=2121+Children's+Museum+Dr,+Denver,+CO+80211",
   },
   {
     name: "Downtown Aquarium Denver",
@@ -229,6 +233,7 @@ export const attractions: Attraction[] = [
     website: "https://www.denveraquarium.com",
     websiteLabel: "denveraquarium.com",
     city: "Denver",
+    mapUrl: "https://maps.google.com/?q=4100+E+35th+Ave,+Denver,+CO+80216",
   },
   {
     name: "Rocky Mountain National Park (RMNP)",
@@ -251,6 +256,7 @@ export const attractions: Attraction[] = [
     website: "https://www.nps.gov/romo",
     websiteLabel: "nps.gov/romo",
     city: "Estes Park",
+    mapUrl: "https://maps.google.com/?q=Estes+Park,+CO+80517",
   },
   {
     name: "Garden of the Gods",
@@ -263,6 +269,7 @@ export const attractions: Attraction[] = [
     websiteLabel: "gardenofthegods.com",
     city: "Colorado Springs",
     free: true,
+    mapUrl: "https://maps.google.com/?q=1805+N+30th+St,+Colorado+Springs,+CO+80904",
   },
   {
     name: "Cheyenne Mountain Zoo",
@@ -275,6 +282,7 @@ export const attractions: Attraction[] = [
     website: "https://www.cmzoo.org",
     websiteLabel: "cmzoo.org",
     city: "Colorado Springs",
+    mapUrl: "https://maps.google.com/?q=4250+Cheyenne+Mountain+Zoo+Rd,+Colorado+Springs,+CO+80906",
   },
   {
     name: "Pikes Peak",
@@ -294,6 +302,7 @@ export const attractions: Attraction[] = [
     website: "https://pikespeak.com",
     websiteLabel: "pikespeak.com",
     city: "Colorado Springs",
+    mapUrl: "https://maps.google.com/?q=Pikes+Peak,+Colorado+Springs,+CO",
   },
   {
     name: "Boulder Flatirons — Chautauqua Park",
@@ -307,6 +316,7 @@ export const attractions: Attraction[] = [
     websiteLabel: "bouldercolorado.gov",
     city: "Boulder",
     free: true,
+    mapUrl: "https://maps.google.com/?q=900+Chautauqua+Pkwy,+Boulder,+CO+80302",
   },
   {
     name: "Estes Park Aerial Tramway",
@@ -318,6 +328,7 @@ export const attractions: Attraction[] = [
     website: "https://www.estesaerialtramway.com",
     websiteLabel: "estesaerialtramway.com",
     city: "Estes Park",
+    mapUrl: "https://maps.google.com/?q=490+Prospect+Village+Dr,+Estes+Park,+CO+80517",
   },
   {
     name: "Manitou Springs",
@@ -332,6 +343,7 @@ export const attractions: Attraction[] = [
     city: "Colorado Springs",
     free: true,
     highlight: true,
+    mapUrl: "https://maps.google.com/?q=Manitou+Springs,+CO+80829",
   },
   {
     name: "Golden / Lookout Mountain",
@@ -346,6 +358,7 @@ export const attractions: Attraction[] = [
     city: "Golden",
     free: true,
     highlight: true,
+    mapUrl: "https://maps.google.com/?q=Golden,+CO+80401",
   },
   {
     name: "Lake Estes",
@@ -357,6 +370,7 @@ export const attractions: Attraction[] = [
     website: "https://www.lakeestes.com",
     websiteLabel: "lakeestes.com",
     city: "Estes Park",
+    mapUrl: "https://maps.google.com/?q=1770+Lakeview+Dr,+Estes+Park,+CO+80517",
   },
   {
     name: "Red Rocks Park & Amphitheatre",
@@ -370,6 +384,7 @@ export const attractions: Attraction[] = [
     websiteLabel: "redrocksonline.com",
     city: "Denver",
     free: true,
+    mapUrl: "https://maps.google.com/?q=18300+W+Alameda+Ave,+Morrison,+CO+80465",
   },
 ];
 
@@ -384,6 +399,7 @@ export const bonusAttractions: Attraction[] = [
     website: "https://www.elitchgardens.com",
     websiteLabel: "elitchgardens.com",
     city: "Denver",
+    mapUrl: "https://maps.google.com/?q=2000+Elitch+Circle,+Denver,+CO+80204",
   },
   {
     name: "Georgetown Loop Railroad",
@@ -396,6 +412,7 @@ export const bonusAttractions: Attraction[] = [
     website: "https://www.georgetownlooprr.com",
     websiteLabel: "georgetownlooprr.com",
     city: "Golden",
+    mapUrl: "https://maps.google.com/?q=Georgetown,+CO+80444",
   },
   {
     name: "Broadmoor Seven Falls",
@@ -407,6 +424,7 @@ export const bonusAttractions: Attraction[] = [
     website: "https://www.broadmoor.com/experiences/seven-falls/",
     websiteLabel: "broadmoor.com",
     city: "Colorado Springs",
+    mapUrl: "https://maps.google.com/?q=1045+Lower+Gold+Camp+Rd,+Colorado+Springs,+CO+80906",
   },
   {
     name: "Cave of the Winds",
@@ -418,6 +436,7 @@ export const bonusAttractions: Attraction[] = [
     website: "https://www.caveofthewinds.com",
     websiteLabel: "caveofthewinds.com",
     city: "Colorado Springs",
+    mapUrl: "https://maps.google.com/?q=100+Cave+of+the+Winds+Rd,+Manitou+Springs,+CO+80829",
   },
   {
     name: "Wings Over the Rockies Air Museum",
@@ -427,6 +446,7 @@ export const bonusAttractions: Attraction[] = [
     whyForAria: "Real airplanes and helicopters, flight simulators, kids can sit in cockpits",
     tips: ["Great for kid who likes planes", "Skip if not interested in aviation"],
     city: "Denver",
+    mapUrl: "https://maps.google.com/?q=7711+E+Academy+Blvd,+Denver,+CO+80231",
   },
 ];
 
@@ -440,6 +460,7 @@ export type Hotel = {
   bookingLabel: string;
   city: string;
   highlight?: string;
+  mapUrl?: string;
 };
 
 export const hotels: Hotel[] = [
@@ -454,6 +475,7 @@ export const hotels: Hotel[] = [
     bookingLabel: "hilton.com",
     city: "Denver",
     highlight: "Free breakfast + evening reception saves ~$50-70/day for family",
+    mapUrl: "https://maps.google.com/?q=8501+E+Belleview+Ave,+Greenwood+Village,+CO+80111",
   },
   {
     name: "Hampton Inn Denver Downtown",
@@ -464,6 +486,7 @@ export const hotels: Hotel[] = [
     booking: "https://www.hilton.com",
     bookingLabel: "hilton.com",
     city: "Denver",
+    mapUrl: "https://maps.google.com/?q=1450+Delaware+St,+Denver,+CO+80204",
   },
   {
     name: "Homewood Suites by Hilton Denver Tech Center",
@@ -475,6 +498,7 @@ export const hotels: Hotel[] = [
     bookingLabel: "hilton.com",
     city: "Denver",
     highlight: "Kitchenette saves money on meals",
+    mapUrl: "https://maps.google.com/?q=4444+S+Syracuse+St,+Denver,+CO+80237",
   },
   // Estes Park
   {
@@ -487,6 +511,7 @@ export const hotels: Hotel[] = [
     bookingLabel: "ymcarocks.org",
     city: "Estes Park",
     highlight: "Best for families — tons of kid activities on-site. BOOK EARLY, fills up fast",
+    mapUrl: "https://maps.google.com/?q=2515+Tunnel+Rd,+Estes+Park,+CO+80517",
   },
   {
     name: "Holiday Inn Estes Park",
@@ -497,6 +522,7 @@ export const hotels: Hotel[] = [
     booking: "https://www.ihg.com",
     bookingLabel: "ihg.com",
     city: "Estes Park",
+    mapUrl: "https://maps.google.com/?q=1635+W+Highway+34,+Estes+Park,+CO+80517",
   },
   {
     name: "Silver Moon Inn",
@@ -506,6 +532,7 @@ export const hotels: Hotel[] = [
     booking: "https://www.silvermooninn.com",
     bookingLabel: "silvermooninn.com",
     city: "Estes Park",
+    mapUrl: "https://maps.google.com/?q=200+W+Riverside+Dr,+Estes+Park,+CO+80517",
   },
 ];
 
@@ -538,27 +565,29 @@ export type Restaurant = {
   avgCost: string;
   notes: string;
   city: string;
+  address?: string;
+  mapUrl?: string;
 };
 
 export const restaurants: Restaurant[] = [
   // Denver
-  { name: "Illegal Pete's (LoDo)", cuisine: "Burritos/Mexican", avgCost: "$25-35", notes: "Local favorite, huge portions, kid-friendly", city: "Denver" },
-  { name: "Snooze AM Eatery", cuisine: "Breakfast/Brunch", avgCost: "$30-40", notes: "Famous pancakes. Breakfast only (closes 2:30 PM)", city: "Denver" },
-  { name: "Snarf's Sandwiches", cuisine: "Sandwiches", avgCost: "$20-30", notes: "Local chain, great subs, affordable", city: "Denver" },
-  { name: "Spice Trade Chicken", cuisine: "Fried chicken", avgCost: "$25-35", notes: "Denver institution, casual", city: "Denver" },
+  { name: "Illegal Pete's (LoDo)", cuisine: "Burritos/Mexican", avgCost: "$25-35", notes: "Local favorite, huge portions, kid-friendly", city: "Denver", address: "1410 Larimer St, Denver, CO 80202", mapUrl: "https://maps.google.com/?q=1410+Larimer+St,+Denver,+CO+80202" },
+  { name: "Snooze AM Eatery", cuisine: "Breakfast/Brunch", avgCost: "$30-40", notes: "Famous pancakes. Breakfast only (closes 2:30 PM)", city: "Denver", address: "1310 E Colfax Ave, Denver, CO 80218", mapUrl: "https://maps.google.com/?q=1310+E+Colfax+Ave,+Denver,+CO+80218" },
+  { name: "Snarf's Sandwiches", cuisine: "Sandwiches", avgCost: "$20-30", notes: "Local chain, great subs, affordable", city: "Denver", address: "1075 S Colorado Blvd, Denver, CO 80246", mapUrl: "https://maps.google.com/?q=1075+S+Colorado+Blvd,+Denver,+CO+80246" },
+  { name: "Spice Trade Chicken", cuisine: "Fried chicken", avgCost: "$25-35", notes: "Denver institution, casual", city: "Denver", address: "2550 19th St, Denver, CO 80211", mapUrl: "https://maps.google.com/?q=2550+19th+St,+Denver,+CO+80211" },
   // Boulder
-  { name: "Qdoba (Pearl Street)", cuisine: "Mexican", avgCost: "$25-35", notes: "Chipotle-style, kid-friendly", city: "Boulder" },
-  { name: "Chautauqua Dining Hall", cuisine: "American", avgCost: "$35-50", notes: "Historic, beautiful setting, great views", city: "Boulder" },
-  { name: "Pearl Street Mall vendors", cuisine: "Various", avgCost: "$15-30", notes: "Street food, ice cream, snacks", city: "Boulder" },
+  { name: "Qdoba (Pearl Street)", cuisine: "Mexican", avgCost: "$25-35", notes: "Chipotle-style, kid-friendly", city: "Boulder", address: "1300 Pearl St, Boulder, CO 80302", mapUrl: "https://maps.google.com/?q=1300+Pearl+St,+Boulder,+CO+80302" },
+  { name: "Chautauqua Dining Hall", cuisine: "American", avgCost: "$35-50", notes: "Historic, beautiful setting, great views", city: "Boulder", address: "900 Chautauqua Pkwy, Boulder, CO 80302", mapUrl: "https://maps.google.com/?q=900+Chautauqua+Pkwy,+Boulder,+CO+80302" },
+  { name: "Pearl Street Mall vendors", cuisine: "Various", avgCost: "$15-30", notes: "Street food, ice cream, snacks", city: "Boulder", address: "Pearl St Mall, Boulder, CO 80302", mapUrl: "https://maps.google.com/?q=Pearl+Street+Mall,+Boulder,+CO+80302" },
   // Estes Park
-  { name: "Poppy's Pizza & Grill", cuisine: "Pizza/Italian", avgCost: "$30-40", notes: "Local favorite, great pizza", city: "Estes Park" },
-  { name: "Nepal's Cafe", cuisine: "Nepalese/Indian", avgCost: "$30-45", notes: "Unique, flavorful, ask for mild for Aria", city: "Estes Park" },
-  { name: "Rock Inn Mountain Tavern", cuisine: "American", avgCost: "$30-45", notes: "Historic cabin, outdoor seating, good burgers", city: "Estes Park" },
-  { name: "Estes Park Pie Shop", cuisine: "Pies/Dessert", avgCost: "$10-15", notes: "Must-visit for Aria! Amazing pies", city: "Estes Park" },
+  { name: "Poppy's Pizza & Grill", cuisine: "Pizza/Italian", avgCost: "$30-40", notes: "Local favorite, great pizza", city: "Estes Park", address: "470 Big Thompson Ave, Estes Park, CO 80517", mapUrl: "https://maps.google.com/?q=470+Big+Thompson+Ave,+Estes+Park,+CO+80517" },
+  { name: "Nepal's Cafe", cuisine: "Nepalese/Indian", avgCost: "$30-45", notes: "Unique, flavorful, ask for mild for Aria", city: "Estes Park", address: "920 Moraine Ave, Estes Park, CO 80517", mapUrl: "https://maps.google.com/?q=920+Moraine+Ave,+Estes+Park,+CO+80517" },
+  { name: "Rock Inn Mountain Tavern", cuisine: "American", avgCost: "$30-45", notes: "Historic cabin, outdoor seating, good burgers", city: "Estes Park", address: "500 W Elkhorn Ave, Estes Park, CO 80517", mapUrl: "https://maps.google.com/?q=500+W+Elkhorn+Ave,+Estes+Park,+CO+80517" },
+  { name: "Estes Park Pie Shop", cuisine: "Pies/Dessert", avgCost: "$10-15", notes: "Must-visit for Aria! Amazing pies", city: "Estes Park", address: "330 W Elkhorn Ave, Estes Park, CO 80517", mapUrl: "https://maps.google.com/?q=330+W+Elkhorn+Ave,+Estes+Park,+CO+80517" },
   // Colorado Springs
-  { name: "Front Range BBQ", cuisine: "BBQ", avgCost: "$25-40", notes: "Excellent BBQ, casual, affordable", city: "Colorado Springs" },
-  { name: "Pho Brothers", cuisine: "Vietnamese", avgCost: "$25-35", notes: "Excellent pho, affordable, kid-friendly", city: "Colorado Springs" },
-  { name: "Marble Bag", cuisine: "Ice cream", avgCost: "$10-15", notes: "Old Colorado City, Aria will love it", city: "Colorado Springs" },
+  { name: "Front Range BBQ", cuisine: "BBQ", avgCost: "$25-40", notes: "Excellent BBQ, casual, affordable", city: "Colorado Springs", address: "3310 W Colorado Ave, Colorado Springs, CO 80904", mapUrl: "https://maps.google.com/?q=3310+W+Colorado+Ave,+Colorado+Springs,+CO+80904" },
+  { name: "Pho Brothers", cuisine: "Vietnamese", avgCost: "$25-35", notes: "Excellent pho, affordable, kid-friendly", city: "Colorado Springs", address: "3630 W Colorado Ave, Colorado Springs, CO 80904", mapUrl: "https://maps.google.com/?q=3630+W+Colorado+Ave,+Colorado+Springs,+CO+80904" },
+  { name: "Marble Bag", cuisine: "Ice cream", avgCost: "$10-15", notes: "Old Colorado City, Aria will love it", city: "Colorado Springs", address: "220 W Pikes Peak Ave, Colorado Springs, CO 80903", mapUrl: "https://maps.google.com/?q=220+W+Pikes+Peak+Ave,+Colorado+Springs,+CO+80903" },
 ];
 
 export const moneySavingTips = [
