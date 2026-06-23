@@ -18,7 +18,8 @@ function DayAccordion({ day, defaultOpen }: { day: DayPlan; defaultOpen: boolean
 
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-4 py-3 md:px-6 md:py-4 text-left"
+        className="w-full flex items-center justify-between px-4 py-3 md:px-6 md:py-4 text-left cursor-pointer"
+        style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'rgba(59, 130, 246, 0.2)' }}
       >
         <div>
           <p className="text-base font-semibold text-stone-900">

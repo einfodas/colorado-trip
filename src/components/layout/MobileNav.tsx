@@ -16,7 +16,8 @@ export default function MobileNav() {
           <a
             key={item.href}
             href={item.href}
-            className="flex flex-col items-center justify-center w-full h-full text-stone-500 active:text-blue-700 min-w-[44px]"
+            className="flex flex-col items-center justify-center w-full h-full text-stone-500 active:text-blue-700 min-w-[44px] cursor-pointer"
+            style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'rgba(59, 130, 246, 0.2)' }}
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
