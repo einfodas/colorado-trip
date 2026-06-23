@@ -2,51 +2,66 @@
 
 import { useEffect } from "react";
 
-function scrollToHash(hash: string) {
-  if (!hash) return;
-  const id = hash.replace("#", "");
-  const element = document.getElementById(id);
-  console.log('[ScrollHandler] scrollToHash:', { hash, id, elementFound: !!element });
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
-    console.log('[ScrollHandler] scrollIntoView called');
-    return true;
-  }
-  return false;
-}
-
 export default function ScrollHandler() {
   useEffect(() => {
-    console.log('[ScrollHandler] Mounted and initialized');
+    console.log('[ScrollHandler] Component mounted, attaching click listener');
+    
+    // Intercept clicks on anchor links to handle scroll manually
+    const handleClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest("a");
+      
+      if (!anchor) return;
+      
+      const href = anchor.getAttribute("href");
+      if (!href || !href.startsWith("#")) return;
+      
+      console.log('[ScrollHandler] Click intercepted:', href);
+      
+      const id = href.replace("#", "");
+      const element = document.getElementById(id);
+      
+      if (element) {
+        // Prevent default to stop Next.js from interfering
+        e.preventDefault();
+        
+        // Update URL hash without triggering navigation
+        window.history.pushState(null, "", href);
+        
+        // Scroll to element
+        const rect = element.getBoundingClientRect();
+        const offset = 80; // Account for fixed header
+        window.scrollTo({
+          top: rect.top + window.scrollY - offset,
+          behavior: "smooth",
+        });
+      }
+    };
     
     // Handle initial hash on page load
-    // Multiple attempts to ensure DOM is fully rendered
-    const tryScroll = (attempts: number) => {
-      if (attempts <= 0) return;
+    const handleInitialHash = () => {
       if (window.location.hash) {
-        const success = scrollToHash(window.location.hash);
-        console.log('[ScrollHandler] Initial scroll attempt:', { hash: window.location.hash, success });
-        if (!success) {
-          setTimeout(() => tryScroll(attempts - 1), 100);
+        const id = window.location.hash.replace("#", "");
+        const element = document.getElementById(id);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const offset = 80;
+          window.scrollTo({
+            top: rect.top + window.scrollY - offset,
+            behavior: "instant" as ScrollBehavior,
+          });
         }
       }
     };
     
-    setTimeout(() => tryScroll(5), 50);
-
-    // Handle hash changes from anchor link clicks
-    // This is the ONLY scroll handler needed - browser automatically
-    // changes hash when clicking anchor links
-    const handleHashChange = () => {
-      console.log('[ScrollHandler] Hash changed:', window.location.hash);
-      scrollToHash(window.location.hash);
-    };
-
-    window.addEventListener("hashchange", handleHashChange);
-    console.log('[ScrollHandler] Hashchange listener attached');
-
+    // Attach click listener to document
+    document.addEventListener("click", handleClick);
+    
+    // Handle initial hash after a delay to ensure DOM is ready
+    setTimeout(handleInitialHash, 100);
+    
     return () => {
-      window.removeEventListener("hashchange", handleHashChange);
+      document.removeEventListener("click", handleClick);
     };
   }, []);
 
