@@ -202,7 +202,7 @@ export default function DayTimeline() {
                       <AlertTriangle className="w-4 h-4 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
                       <div className="text-sm">
                         <p className="font-medium text-red-700 dark:text-red-300">
-                          Altitude Warning — {altitude.riskLevel} Risk
+                          Altitude Warning: {altitude.riskLevel} Risk
                         </p>
                         <p className="text-red-600 dark:text-red-400 mt-0.5">
                           Max elevation: {altitude.maxElevation}. Watch for headache, nausea, dizziness in Aria. Descend immediately if symptoms worsen.

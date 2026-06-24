@@ -4,8 +4,6 @@ import { useEffect } from "react";
 
 export default function ScrollHandler() {
   useEffect(() => {
-    console.log('[ScrollHandler] Component mounted, attaching click listener');
-    
     // Intercept clicks on anchor links to handle scroll manually
     const handleClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
@@ -15,8 +13,6 @@ export default function ScrollHandler() {
       
       const href = anchor.getAttribute("href");
       if (!href || !href.startsWith("#")) return;
-      
-      console.log('[ScrollHandler] Click intercepted:', href);
       
       const id = href.replace("#", "");
       const element = document.getElementById(id);

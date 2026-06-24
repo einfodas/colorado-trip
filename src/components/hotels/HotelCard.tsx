@@ -1,4 +1,4 @@
-import { MapPin, DollarSign, Car, ExternalLink } from "lucide-react";
+import { MapPin, DollarSign, Car, ExternalLink, Star } from "lucide-react";
 import { hotels } from "@/data/trip-data";
 import { getCityColor } from "@/lib/colors";
 
@@ -15,7 +15,7 @@ function HotelCard({ hotel }: { hotel: typeof hotels[0] }) {
           </span>
           {hotel.highlight && (
             <span className="inline-flex px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400">
-              ★
+              <Star className="w-3 h-3" />
             </span>
           )}
         </div>
@@ -47,7 +47,7 @@ function HotelCard({ hotel }: { hotel: typeof hotels[0] }) {
           href={hotel.booking}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-700 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 active:scale-[0.97] transition-all duration-150"
+          className="inline-flex items-center gap-1.5 px-4 py-2 min-h-[44px] text-sm font-medium text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-700 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 active:scale-[0.97] transition-all duration-150"
           style={{ touchAction: "manipulation" }}
         >
           {hotel.bookingLabel}
@@ -58,7 +58,7 @@ function HotelCard({ hotel }: { hotel: typeof hotels[0] }) {
             href={hotel.mapUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-700 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 active:scale-[0.97] transition-all duration-150"
+            className="inline-flex items-center gap-1.5 px-4 py-2 min-h-[44px] text-sm font-medium text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-700 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 active:scale-[0.97] transition-all duration-150"
             style={{ touchAction: "manipulation" }}
           >
             View on Map

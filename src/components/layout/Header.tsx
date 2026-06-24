@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { tripMeta } from "@/data/trip-data";
 import { useTheme } from "@/hooks/useTheme";
+import { X } from "lucide-react";
 
 const navLinks = [
   { label: "Overview", href: "#overview" },
@@ -41,7 +42,7 @@ export default function Header() {
   };
 
   return (
-    <header className="static md:sticky top-0 z-50 bg-white dark:bg-stone-900 border-b border-stone-200 dark:border-stone-700 transition-colors">
+    <header className="static md:sticky top-0 z-50 bg-surface dark:bg-stone-800 border-b border-stone-200 dark:border-stone-700 transition-colors">
       <div className="flex items-center justify-between h-14 px-4 max-w-6xl mx-auto">
         <a href="#" className="font-display text-lg tracking-tight text-stone-900 dark:text-stone-100">
           {tripMeta.title}
@@ -106,13 +107,14 @@ export default function Header() {
       </div>
 
       {mobileMenuOpen && (
-        <nav className="md:hidden border-t border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-4 py-2 transition-colors">
+        <nav className="md:hidden border-t border-stone-200 dark:border-stone-700 bg-surface dark:bg-stone-800 px-4 py-2 transition-colors">
           <button
             onClick={() => setMobileMenuOpen(false)}
-            className="block w-full text-right px-3 py-2 text-stone-500 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 text-sm"
+            className="flex items-center gap-1.5 w-full justify-end px-3 py-2 text-stone-500 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 text-sm"
             style={{ touchAction: 'manipulation' }}
           >
-            ✕ Close
+            <X className="w-4 h-4" />
+            Close
           </button>
           {navLinks.map((link) => (
             <a

@@ -17,7 +17,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Colorado Family Vacation — July 29 – Aug 4, 2026",
+  title: "Colorado Family Vacation: July 29 – Aug 4, 2026",
   description: "7-day Colorado family vacation plan with itinerary, attractions, hotels, dining, packing list, and budget.",
 };
 

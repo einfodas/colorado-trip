@@ -25,7 +25,7 @@ export default function QuickLinks() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-3 py-2 text-sm text-blue-700 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 active:scale-[0.97] rounded-lg transition-all duration-150"
+                  className="flex items-center gap-2 px-3 py-2 min-h-[44px] text-sm text-blue-700 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 active:scale-[0.97] rounded-lg transition-all duration-150"
                   style={{ touchAction: 'manipulation' }}
                 >
                   <span className="truncate">{link.label}</span>

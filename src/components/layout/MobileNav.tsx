@@ -15,10 +15,9 @@ export default function MobileNav() {
 
   return (
     <nav
-      className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 dark:bg-stone-900/95 backdrop-blur-sm border-t border-stone-200 dark:border-stone-700 transition-colors"
+      className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-surface dark:bg-stone-800 border-t border-stone-200 dark:border-stone-700 transition-colors"
       style={{
         touchAction: 'manipulation',
-        WebkitBackdropFilter: 'blur(8px)',
         paddingBottom: 'env(safe-area-inset-bottom, 0px)',
       }}
     >
