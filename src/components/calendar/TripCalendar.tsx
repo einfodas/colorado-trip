@@ -29,7 +29,7 @@ export default function TripCalendar() {
             key={day.day}
             href={`#day-${day.day}`}
             onClick={(e) => handleDayClick(e, day.day)}
-            className="card overflow-hidden text-left hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-150 block flex-shrink-0 w-[140px] snap-center md:w-auto md:flex-shrink md:h-[180px] flex flex-col"
+            className="card overflow-hidden text-left hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-150 block flex-shrink-0 w-[180px] snap-center md:w-auto md:flex-shrink md:h-[220px] flex flex-col"
           >
             <div className={`${cc.bg} ${cc.bgDark} px-3 pt-3 pb-2 transition-colors`}>
               <p className={`text-xs font-medium ${cc.textMuted} ${cc.textMutedDark}`}>{day.dayName}</p>
