@@ -17,6 +17,8 @@ export default function TripCalendar() {
         behavior: 'smooth'
       });
       window.history.pushState(null, '', href);
+      // Trigger hashchange event so DayTimeline can auto-expand
+      window.dispatchEvent(new HashChangeEvent('hashchange'));
     }
   };
 

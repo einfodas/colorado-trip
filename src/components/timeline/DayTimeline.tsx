@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Car,
   Clock,
@@ -104,6 +104,25 @@ const jumpLinks = [
 
 export default function DayTimeline() {
   const [openDay, setOpenDay] = useState(1);
+
+  // Listen for hash changes to auto-expand the targeted day
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#day-')) {
+        const dayNum = parseInt(hash.replace('#day-', ''), 10);
+        if (!isNaN(dayNum) && dayNum >= 1 && dayNum <= 7) {
+          setOpenDay(dayNum);
+        }
+      }
+    };
+
+    // Check initial hash on mount
+    handleHashChange();
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   return (
     <div className="flex flex-col gap-4">
