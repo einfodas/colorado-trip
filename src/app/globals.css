@@ -14,7 +14,7 @@
   --color-text-secondary: #57534E;
   --color-border: #E7E5E4;
   --font-sans: var(--font-plus-jakarta);
-  --font-display: var(--font-dm-serif);
+  --font-display: var(--font-plus-jakarta);
 }
 
 html {
@@ -79,7 +79,9 @@ details > summary::-webkit-details-marker {
     transition: background-color 0.2s, border-color 0.2s;
   }
   .font-display {
-    font-family: var(--font-display), Georgia, serif;
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
   }
   .font-body {
     font-family: var(--font-sans), system-ui, sans-serif;
