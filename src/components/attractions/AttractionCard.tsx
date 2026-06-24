@@ -3,10 +3,15 @@ import { attractions, bonusAttractions } from "@/data/trip-data";
 import type { Attraction } from "@/data/trip-data";
 import { getCityColor } from "@/lib/colors";
 
+function slugify(name: string): string {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
 function AttractionCard({ attraction }: { attraction: Attraction }) {
   const cc = getCityColor(attraction.city);
+  const cardId = `attraction-${slugify(attraction.name)}`;
   return (
-    <div className="card overflow-hidden hover:shadow-md transition-shadow duration-200">
+    <div id={cardId} className="card overflow-hidden hover:shadow-md transition-shadow duration-200 scroll-mt-20">
       <div className={`${cc.bg} ${cc.bgDark} px-5 py-3 transition-colors`}>
         <div className="flex items-start justify-between gap-2">
           <h3 className="font-display text-xl font-normal tracking-tight leading-tight text-stone-900 dark:text-stone-100">

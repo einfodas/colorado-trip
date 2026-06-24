@@ -1,5 +1,33 @@
 import { MapPin, DollarSign } from "lucide-react";
 import type { TimelineItem as TimelineItemType } from "@/data/trip-data";
+import { attractions } from "@/data/trip-data";
+
+function slugify(name: string): string {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+// Map itinerary activity names to attraction card IDs
+function findMatchingAttraction(activity: string): string | null {
+  // Direct match
+  const directMatch = attractions.find(a => a.name === activity);
+  if (directMatch) return `attraction-${slugify(directMatch.name)}`;
+  
+  // Partial match (e.g., "Estes Park Aerial Tramway (optional)" → "Estes Park Aerial Tramway")
+  const partialMatch = attractions.find(a => activity.includes(a.name));
+  if (partialMatch) return `attraction-${slugify(partialMatch.name)}`;
+  
+  // Special cases
+  if (activity.includes("Lookout Mountain") || activity.includes("Buffalo Herd")) {
+    return `attraction-${slugify("Golden / Lookout Mountain")}`;
+  }
+  if (activity.includes("Bear Lake") || activity.includes("Sprague Lake") || 
+      activity.includes("Echo Lake") || activity.includes("Trail Ridge Road") || 
+      activity.includes("Lily Lake")) {
+    return `attraction-${slugify("Rocky Mountain National Park (RMNP)")}`;
+  }
+  
+  return null;
+}
 
 export default function TimelineItem({
   item,
@@ -8,6 +36,28 @@ export default function TimelineItem({
   item: TimelineItemType;
   isLast: boolean;
 }) {
+  const attractionId = findMatchingAttraction(item.activity);
+  
+  const handleAttractionClick = (e: React.MouseEvent) => {
+    if (!attractionId) return;
+    e.preventDefault();
+    
+    const element = document.getElementById(attractionId);
+    if (element) {
+      // Wait for any layout changes, then scroll
+      requestAnimationFrame(() => {
+        const rect = element.getBoundingClientRect();
+        const offset = 80;
+        window.scrollTo({
+          top: rect.top + window.scrollY - offset,
+          behavior: 'smooth'
+        });
+        // Update URL hash
+        window.history.pushState(null, '', `#${attractionId}`);
+      });
+    }
+  };
+  
   return (
     <div className="flex gap-3">
       <div className="flex flex-col items-center">
@@ -22,7 +72,18 @@ export default function TimelineItem({
           </span>
         </div>
         <p className="text-base font-medium text-stone-900 dark:text-stone-100 mt-1 flex items-center flex-wrap gap-1">
-          {item.activity}
+          {attractionId ? (
+            <button
+              onClick={handleAttractionClick}
+              className="text-left hover:text-blue-600 dark:hover:text-blue-400 underline decoration-dotted underline-offset-2 transition-colors cursor-pointer"
+              style={{ touchAction: "manipulation" }}
+              title={`View ${item.activity} details`}
+            >
+              {item.activity}
+            </button>
+          ) : (
+            item.activity
+          )}
           {item.mapUrl && (
             <a
               href={item.mapUrl}
