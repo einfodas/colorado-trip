@@ -7,19 +7,11 @@ import { getCityColor, getCityFromLocation } from "@/lib/colors";
 export default function TripCalendar() {
   const handleDayClick = (e: React.MouseEvent<HTMLAnchorElement>, dayNum: number) => {
     e.preventDefault();
-    const href = `#day-${dayNum}`;
-    const element = document.getElementById(href.replace('#', ''));
-    if (element) {
-      const rect = element.getBoundingClientRect();
-      const offset = 80;
-      window.scrollTo({
-        top: rect.top + window.scrollY - offset,
-        behavior: 'smooth'
-      });
-      window.history.pushState(null, '', href);
-      // Trigger hashchange event so DayTimeline can auto-expand
-      window.dispatchEvent(new HashChangeEvent('hashchange'));
-    }
+    e.stopPropagation();
+
+    // Push hash + dispatch hashchange — DayTimeline handles expand + scroll
+    window.history.pushState(null, '', `#day-${dayNum}`);
+    window.dispatchEvent(new HashChangeEvent('hashchange'));
   };
 
   return (

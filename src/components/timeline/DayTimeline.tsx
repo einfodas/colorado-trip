@@ -113,6 +113,18 @@ export default function DayTimeline() {
         const dayNum = parseInt(hash.replace('#day-', ''), 10);
         if (!isNaN(dayNum) && dayNum >= 1 && dayNum <= 7) {
           setOpenDay(dayNum);
+          // Wait for accordion animation (300ms) then scroll to final position
+          setTimeout(() => {
+            const element = document.getElementById(`day-${dayNum}`);
+            if (element) {
+              const rect = element.getBoundingClientRect();
+              const offset = 80;
+              window.scrollTo({
+                top: rect.top + window.scrollY - offset,
+                behavior: 'smooth'
+              });
+            }
+          }, 350);
         }
       }
     };
@@ -148,7 +160,23 @@ export default function DayTimeline() {
 
             <button
               type="button"
-              onClick={() => setOpenDay(isOpen ? -1 : day.day)}
+              onClick={() => {
+                const willOpen = !isOpen;
+                setOpenDay(willOpen ? day.day : -1);
+                // Scroll to this day after accordion animation
+                if (willOpen) {
+                  setTimeout(() => {
+                    const el = document.getElementById(`day-${day.day}`);
+                    if (el) {
+                      const rect = el.getBoundingClientRect();
+                      window.scrollTo({
+                        top: rect.top + window.scrollY - 80,
+                        behavior: 'smooth'
+                      });
+                    }
+                  }, 350);
+                }
+              }}
               className="w-full flex items-stretch cursor-pointer select-none text-left"
               style={{ touchAction: "manipulation" }}
             >

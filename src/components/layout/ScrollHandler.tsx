@@ -13,7 +13,10 @@ export default function ScrollHandler() {
       
       const href = anchor.getAttribute("href");
       if (!href || !href.startsWith("#")) return;
-      
+
+      // Skip day-N anchors — TripCalendar handles those with accordion expand timing
+      if (/^#day-\d+$/.test(href)) return;
+
       const id = href.replace("#", "");
       const element = document.getElementById(id);
       
