@@ -2,6 +2,7 @@ import Header from "@/components/layout/Header";
 import MobileNav from "@/components/layout/MobileNav";
 import ScrollHandler from "@/components/layout/ScrollHandler";
 import Section from "@/components/layout/Section";
+import Hero from "@/components/layout/Hero";
 import Overview from "@/components/overview/Overview";
 import TripCalendar from "@/components/calendar/TripCalendar";
 import DayTimeline from "@/components/timeline/DayTimeline";
@@ -23,6 +24,8 @@ export default function Home() {
       <ScrollHandler />
       <Header />
       <main className="pb-20 md:pb-0">
+        <Hero />
+
         <Section id="overview" title="Trip Overview">
           <Overview />
         </Section>
