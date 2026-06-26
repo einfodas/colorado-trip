@@ -20,6 +20,8 @@ export default function MobileNav() {
       style={{
         touchAction: 'manipulation',
         paddingBottom: 'env(safe-area-inset-bottom, 0px)',
+        transform: 'translateZ(0)',
+        WebkitTransform: 'translateZ(0)',
       }}
     >
       <div className="flex items-center justify-around h-16">
