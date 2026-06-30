@@ -9,6 +9,7 @@ const priorityColors = {
   critical: { dot: "bg-red-600", badge: "bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400" },
   important: { dot: "bg-amber-500", badge: "bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400" },
   nice: { dot: "bg-emerald-500", badge: "bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400" },
+  completed: { dot: "bg-stone-400", badge: "bg-stone-100 dark:bg-stone-700 text-stone-500 dark:text-stone-400" },
 };
 
 function loadChecked(): Record<string, boolean> {

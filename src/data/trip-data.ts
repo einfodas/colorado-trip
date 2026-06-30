@@ -8,7 +8,7 @@ export const tripMeta = {
   duration: "7 Days, 6 Nights",
   family: ["Jay", "Moon", "Aria (age 5)"],
   budgetRange: "$2,540 – $4,200 (excl. flights)",
-  baseCities: "Denver (3 nights) + Estes Park (3 nights)",
+  baseCities: "Denver (4 nights) + Estes Park (2 nights)",
 };
 
 export type Flight = {
@@ -153,7 +153,7 @@ export const itinerary: DayPlan[] = [
       { time: "11:30 AM", activity: "Early lunch in Estes Park", notes: "Grab lunch before hotel check-in", mapUrl: "https://maps.google.com/?q=Downtown+Estes+Park,+CO+80517" },
       { time: "12:30 PM", activity: "Estes Park downtown", notes: "Walk around, fudge shops, taffy, souvenir. Aria will love the candy stores", mapUrl: "https://maps.google.com/?q=Downtown+Estes+Park,+CO+80517" },
       { time: "2:00 PM", activity: "Lake Estes", notes: "Walk the 3.3-mile paved path (do a section), or rent a paddle boat from Lake Estes Marina. Mini golf nearby", mapUrl: "https://maps.google.com/?q=Lake+Estes,+Estes+Park,+CO+80517", pricing: "Paddle boat ~$20/hr, Mini golf ~$8-10" },
-      { time: "4:00 PM", activity: "Check into Coyote Mountain Lodge", notes: "Itinerary #1658112994707402, PIN 5308", mapUrl: "https://maps.google.com/?q=1340+Big+Thompson+Ave,+Estes+Park,+CO+80517" },
+      { time: "4:00 PM", activity: "Check into Coyote Mountain Lodge", notes: "Booking #1658112994707402", mapUrl: "https://maps.google.com/?q=1340+Big+Thompson+Ave,+Estes+Park,+CO+80517" },
       { time: "5:00 PM", activity: "Estes Park Aerial Tramway (optional)", notes: "Ride to top of Prospect Mountain for panoramic views", mapUrl: "https://maps.google.com/?q=Estes+Park+Aerial+Tramway,+Estes+Park,+CO+80517", pricing: "Adults ~$18, Children (6-11) ~$10" },
       { time: "7:00 PM", activity: "Dinner in Estes Park", notes: "See Estes Park dining options" },
     ],
@@ -734,7 +734,7 @@ export const packingList: PackingItem[] = [
 export const beforeYouLeave = [
   { task: "Book RMNP Timed Entry Permits", deadline: "July 1 at 8:00 AM MT", priority: "critical" },
   { task: "Book car rental (SUV at DEN)", deadline: "ASAP, July is peak season", priority: "critical" },
-  { task: "Book hotels (both locations)", deadline: "ASAP, Estes Park fills up", priority: "critical" },
+  { task: "Book hotels (both locations)", deadline: "ALREADY BOOKED", priority: "completed" },
   { task: "Check RMNP permit release date for 2026", deadline: "June 2026", priority: "important" },
   { task: "Consult pediatrician about altitude for Aria", deadline: "2 weeks before", priority: "important" },
   { task: "Book Pikes Peak Cog Railway (if desired)", deadline: "2 weeks before", priority: "important" },
@@ -763,7 +763,7 @@ export const budgetRows: BudgetRow[] = [
 
 export const costSavingStrategies = [
   "Hotels with free breakfast save ~$200-300 over the trip",
-  "Drury Inn's free evening reception saves ~$150 on dinners",
+  "DoubleTree's warm cookie at check-in makes Aria's day — free!",
   "Picnic lunches instead of restaurants save ~$200",
   "Bring your own car seat saves $60-90",
   "Garden of the Gods + Red Rocks + Flatirons + Buffalo Herd + Mineral Springs = FREE major attractions",
@@ -795,11 +795,9 @@ export const quickLinks: QuickLink[] = [
   { label: "Elitch Gardens", url: "https://www.elitchgardens.com", category: "Attractions" },
   { label: "Broadmoor Seven Falls", url: "https://www.broadmoor.com/experiences/seven-falls/", category: "Attractions" },
   { label: "Cave of the Winds", url: "https://www.caveofthewinds.com", category: "Attractions" },
-  // Hotels
-  { label: "YMCA of the Rockies (Estes Park)", url: "https://www.ymcarocks.org", category: "Hotels" },
-  { label: "Hilton (Embassy Suites, Hampton, Homewood)", url: "https://www.hilton.com", category: "Hotels" },
-  { label: "Holiday Inn Estes Park", url: "https://www.ihg.com", category: "Hotels" },
-  { label: "Silver Moon Inn", url: "https://www.silvermooninn.com", category: "Hotels" },
+  // Hotels (Confirmed Bookings)
+  { label: "DoubleTree Denver (Confirmed)", url: "https://www.hilton.com", category: "Hotels" },
+  { label: "Coyote Mountain Lodge (Confirmed)", url: "https://www.coyotemountainlodge.com", category: "Hotels" },
   // Car Rental
   { label: "Compare all (Kayak)", url: "https://www.kayak.com/cars", category: "Car Rental" },
   { label: "Costco Travel", url: "https://www.costcotravel.com", category: "Car Rental" },
