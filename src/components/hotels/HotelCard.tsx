@@ -1,45 +1,96 @@
-import { MapPin, DollarSign, Car, ExternalLink, Star } from "lucide-react";
+import { MapPin, DollarSign, Car, ExternalLink, Star, Calendar, CheckCircle } from "lucide-react";
 import { hotels } from "@/data/trip-data";
 import { getCityColor } from "@/lib/colors";
 
 const cities = ["Denver", "Estes Park", "Colorado Springs"];
 
 function HotelCard({ hotel }: { hotel: typeof hotels[0] }) {
+  const isConfirmed = hotel.confirmed;
+
   return (
-    <div className="card p-4 md:p-6 hover:shadow-md transition-shadow duration-200">
-      <div className="flex items-start justify-between gap-2">
-        <h3 className="font-display text-lg font-normal tracking-tight leading-tight text-stone-900 dark:text-stone-100">{hotel.name}</h3>
-        <div className="flex gap-1.5 flex-shrink-0">
-          <span className="inline-flex px-2.5 py-0.5 rounded-full text-xs font-medium bg-stone-100 dark:bg-stone-700 text-stone-700 dark:text-stone-300">
-            {hotel.city}
-          </span>
-          {hotel.highlight && (
-            <span className="inline-flex px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400">
-              <Star className="w-3 h-3" />
+    <div className={`card p-4 md:p-6 hover:shadow-md transition-shadow duration-200 ${
+      isConfirmed 
+        ? "bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20 border-2 border-green-300 dark:border-green-700" 
+        : ""
+    }`}>
+      <div className="flex items-start justify-between gap-2 mb-3">
+        <div className="flex-1">
+          <div className="flex items-center gap-2 mb-1">
+            <h3 className="font-display text-lg font-normal tracking-tight leading-tight text-stone-900 dark:text-stone-100">
+              {hotel.name}
+            </h3>
+            {isConfirmed && (
+              <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0" />
+            )}
+          </div>
+          <div className="flex gap-1.5 flex-wrap">
+            <span className="inline-flex px-2.5 py-0.5 rounded-full text-xs font-medium bg-stone-100 dark:bg-stone-700 text-stone-700 dark:text-stone-300">
+              {hotel.city}
             </span>
-          )}
+            {isConfirmed && (
+              <span className="inline-flex px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300">
+                Confirmed
+              </span>
+            )}
+          </div>
         </div>
       </div>
 
-      <p className="text-sm text-stone-600 dark:text-stone-400 mt-1 flex items-center gap-1">
-        <MapPin className="w-4 h-4 inline mr-1" />
+      <p className="text-sm text-stone-600 dark:text-stone-400 flex items-center gap-1">
+        <MapPin className="w-4 h-4 inline mr-1 flex-shrink-0" />
         {hotel.address}
       </p>
-      <p className="text-sm font-medium text-stone-900 dark:text-stone-100 mt-2 flex items-center gap-1 tabular-nums">
-        <DollarSign className="w-4 h-4 inline mr-1" />
-        {hotel.rate}
-      </p>
-      <p className="text-sm text-stone-600 dark:text-stone-400 mt-1">{hotel.why}</p>
+
+      {isConfirmed && hotel.checkIn && hotel.checkOut && (
+        <div className="mt-3 p-3 bg-white dark:bg-stone-900 rounded-lg border border-green-200 dark:border-green-800">
+          <div className="flex items-center gap-2 mb-2">
+            <Calendar className="w-4 h-4 text-green-600 dark:text-green-400" />
+            <span className="text-sm font-semibold text-green-900 dark:text-green-200">
+              Booking Details
+            </span>
+          </div>
+          <div className="text-sm space-y-1">
+            <div className="flex justify-between">
+              <span className="text-stone-600 dark:text-stone-400">Check-in:</span>
+              <span className="font-medium text-stone-900 dark:text-stone-100">{hotel.checkIn}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-stone-600 dark:text-stone-400">Check-out:</span>
+              <span className="font-medium text-stone-900 dark:text-stone-100">{hotel.checkOut}</span>
+            </div>
+            {hotel.confirmationNo && (
+              <div className="flex justify-between pt-1 border-t border-green-200 dark:border-green-800 mt-1">
+                <span className="text-stone-600 dark:text-stone-400">Confirmation #:</span>
+                <span className="font-mono text-xs font-medium text-stone-900 dark:text-stone-100">
+                  {hotel.confirmationNo}
+                </span>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {!isConfirmed && (
+        <>
+          <p className="text-sm font-medium text-stone-900 dark:text-stone-100 mt-2 flex items-center gap-1 tabular-nums">
+            <DollarSign className="w-4 h-4 inline mr-1" />
+            {hotel.rate}
+          </p>
+          <p className="text-sm text-stone-600 dark:text-stone-400 mt-1">{hotel.why}</p>
+        </>
+      )}
 
       {hotel.distanceToAttraction && (
-        <p className="text-xs text-stone-500 dark:text-stone-400 mt-1 flex items-center gap-1">
+        <p className="text-xs text-stone-500 dark:text-stone-400 mt-2 flex items-center gap-1">
           <Car className="w-4 h-4 inline mr-1" />
           {hotel.distanceToAttraction}
         </p>
       )}
 
-      {hotel.highlight && (
-        <p className="text-sm text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 rounded-lg p-2 mt-2 transition-colors">{hotel.highlight}</p>
+      {hotel.highlight && !isConfirmed && (
+        <p className="text-sm text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 rounded-lg p-2 mt-2 transition-colors">
+          {hotel.highlight}
+        </p>
       )}
 
       <div className="mt-3 flex flex-wrap gap-2">

@@ -11,6 +11,37 @@ export const tripMeta = {
   baseCities: "Denver (3 nights) + Estes Park (3 nights)",
 };
 
+export type Flight = {
+  airline: string;
+  flightNumber: string;
+  from: string;
+  to: string;
+  departure: string;
+  arrival: string;
+  date: string;
+};
+
+export const flights: Flight[] = [
+  {
+    airline: "Delta",
+    flightNumber: "3876",
+    from: "Austin (AUS)",
+    to: "Denver (DEN)",
+    departure: "7:25 AM",
+    arrival: "8:48 AM",
+    date: "Wed, Jul 29",
+  },
+  {
+    airline: "Delta",
+    flightNumber: "3876",
+    from: "Denver (DEN)",
+    to: "Austin (AUS)",
+    departure: "9:29 AM",
+    arrival: "12:44 PM",
+    date: "Tue, Aug 4",
+  },
+];
+
 export type TimelineItem = {
   time: string;
   activity: string;
@@ -69,28 +100,64 @@ export const itinerary: DayPlan[] = [
     day: 3,
     date: "July 31",
     dayName: "Friday",
-    theme: "Scenic drive, buffalo herd, Flatirons, settle into mountains",
-    location: "Denver → Golden → Boulder → Estes Park",
+    theme: "Full Denver day: zoo, museum, relaxation",
+    location: "Denver",
     timeline: [
-      { time: "8:00 AM", activity: "Hotel breakfast + checkout", notes: "" },
-      { time: "9:00 AM", activity: "Drive to Golden, CO", notes: "~30 min from Denver", mapUrl: "https://maps.google.com/?q=Golden,+CO" },
-      { time: "9:30 AM", activity: "Lookout Mountain + Buffalo Herd", notes: "FREE! Wild buffalo herd roaming on Lookout Mountain. Drive up, see buffalo from the car. Aria will LOVE this. Also: Lariat Loop scenic drive", mapUrl: "https://maps.google.com/?q=Lookout+Mountain,+Golden,+CO+80403", pricing: "Free" },
-      { time: "10:30 AM", activity: "Drive Golden → Boulder", notes: "~20 min" },
-      { time: "10:45 AM", activity: "Boulder Flatirons at Chautauqua Park", notes: "Easy 1-mile loop trail, stunning rock formations, kid-friendly. Free.", mapUrl: "https://maps.google.com/?q=Chautauqua+Park,+Boulder,+CO+80302", pricing: "Free" },
-      { time: "12:00 PM", activity: "Lunch on Pearl Street Mall (Boulder)", notes: "Outdoor pedestrian mall, street performers, lots of food options", mapUrl: "https://maps.google.com/?q=Pearl+Street+Mall,+Boulder,+CO+80302", pricing: "~$20-35 family" },
-      { time: "1:30 PM", activity: "Drive Boulder → Estes Park", notes: "~45 min via CO-66/CO-7, scenic route through the foothills" },
-      { time: "2:30 PM", activity: "Check into Estes Park hotel", notes: "", mapUrl: "https://maps.google.com/?q=2515+Tunnel+Rd,+Estes+Park,+CO+80517" },
-      { time: "3:30 PM", activity: "Estes Park downtown", notes: "Walk around, fudge shops, taffy, souvenir. Aria will love the candy stores", mapUrl: "https://maps.google.com/?q=Downtown+Estes+Park,+CO+80517" },
-      { time: "5:00 PM", activity: "Estes Park Aerial Tramway (optional)", notes: "Ride to top of Prospect Mountain for panoramic views", mapUrl: "https://maps.google.com/?q=Estes+Park+Aerial+Tramway,+Estes+Park,+CO+80517", pricing: "Adults ~$18, Children (6-11) ~$10" },
-      { time: "7:00 PM", activity: "Dinner in Estes Park", notes: "See Estes Park dining options" },
+      { time: "8:00 AM", activity: "Hotel breakfast", notes: "" },
+      { time: "9:00 AM", activity: "Denver Zoo", notes: "3-4 hrs. Arrive early, animals active in morning", mapUrl: "https://maps.google.com/?q=2900+E+23rd+Ave,+Denver,+CO+80205", pricing: "Adults ~$25, Children ~$19, Under 3 Free, Parking ~$10" },
+      { time: "12:30 PM", activity: "Lunch at zoo or nearby", notes: "Zoo has food courts" },
+      { time: "2:00 PM", activity: "Denver Museum of Nature & Science", notes: "2-3 hrs. DINOSAURS! Planetarium, IMAX, hands-on exhibits. RIGHT NEXT DOOR to the zoo (5-min walk, both in City Park)", mapUrl: "https://maps.google.com/?q=2001+Colorado+Blvd,+Denver,+CO+80205", pricing: "Adults ~$20, Children ~$15, Under 3 Free, IMAX ~$7-8" },
+      { time: "5:00 PM", activity: "Return to hotel, rest/pool time", notes: "" },
+      { time: "6:30 PM", activity: "Dinner", notes: "See Denver dining options" },
     ],
-    driving: "Denver → Golden (30 min) → Boulder (20 min) → Estes Park (45 min)",
-    totalDriving: "~1.5 hrs",
+    driving: "Hotel → Zoo (~15 min) → Museum (~5 min walk) → Hotel (~15 min)",
+    totalDriving: "~30 min",
   },
   {
     day: 4,
     date: "August 1",
     dayName: "Saturday",
+    theme: "Golden buffalo herd + Boulder Flatirons + scenic drive",
+    location: "Denver → Golden → Boulder → Denver",
+    timeline: [
+      { time: "8:00 AM", activity: "Hotel breakfast", notes: "" },
+      { time: "9:00 AM", activity: "Drive to Golden, CO", notes: "~30 min from Denver", mapUrl: "https://maps.google.com/?q=Golden,+CO" },
+      { time: "9:30 AM", activity: "Lookout Mountain + Buffalo Herd", notes: "FREE! Wild buffalo herd roaming on Lookout Mountain. Drive up, see buffalo from the car. Aria will LOVE this. Also: Lariat Loop scenic drive", mapUrl: "https://maps.google.com/?q=Lookout+Mountain,+Golden,+CO+80403", pricing: "Free" },
+      { time: "10:30 AM", activity: "Drive Golden → Boulder", notes: "~20 min" },
+      { time: "10:45 AM", activity: "Boulder Flatirons at Chautauqua Park", notes: "Easy 1-mile loop trail, stunning rock formations, kid-friendly. Free.", mapUrl: "https://maps.google.com/?q=Chautauqua+Park,+Boulder,+CO+80302", pricing: "Free" },
+      { time: "12:00 PM", activity: "Lunch on Pearl Street Mall (Boulder)", notes: "Outdoor pedestrian mall, street performers, lots of food options", mapUrl: "https://maps.google.com/?q=Pearl+Street+Mall,+Boulder,+CO+80302", pricing: "~$20-35 family" },
+      { time: "1:30 PM", activity: "Drive back to Denver", notes: "~45 min via US-36" },
+      { time: "2:30 PM", activity: "Return to hotel, rest/pool time", notes: "Pack for tomorrow's drive to Estes Park" },
+      { time: "4:00 PM", activity: "Denver Union Station (optional)", notes: "Free to walk around, kid-friendly fountains, ice cream at Milkbox Ice Creamery inside", mapUrl: "https://maps.google.com/?q=1701+Wynkoop+St,+Denver,+CO+80202", pricing: "Free" },
+      { time: "6:30 PM", activity: "Dinner at Illegal Pete's (LoDo)", notes: "Casual, affordable, kid-approved burritos", mapUrl: "https://maps.google.com/?q=1410+Larimer+St,+Denver,+CO+80202", pricing: "~$25-35 family" },
+      { time: "8:00 PM", activity: "Early bedtime", notes: "Big day tomorrow: drive to Estes Park" },
+    ],
+    driving: "Denver → Golden (30 min) → Boulder (20 min) → Denver (45 min)",
+    totalDriving: "~1.5 hrs",
+  },
+  {
+    day: 5,
+    date: "August 2",
+    dayName: "Sunday",
+    theme: "Drive to Estes Park, check in, explore town",
+    location: "Denver → Estes Park",
+    timeline: [
+      { time: "8:00 AM", activity: "Hotel breakfast + checkout", notes: "Check out by 11 AM" },
+      { time: "10:00 AM", activity: "Drive Denver → Estes Park", notes: "~1.5 hrs via I-25 N to US-34 W", mapUrl: "https://maps.google.com/?q=Estes+Park,+CO+80517" },
+      { time: "11:30 AM", activity: "Early lunch in Estes Park", notes: "Grab lunch before hotel check-in", mapUrl: "https://maps.google.com/?q=Downtown+Estes+Park,+CO+80517" },
+      { time: "12:30 PM", activity: "Estes Park downtown", notes: "Walk around, fudge shops, taffy, souvenir. Aria will love the candy stores", mapUrl: "https://maps.google.com/?q=Downtown+Estes+Park,+CO+80517" },
+      { time: "2:00 PM", activity: "Lake Estes", notes: "Walk the 3.3-mile paved path (do a section), or rent a paddle boat from Lake Estes Marina. Mini golf nearby", mapUrl: "https://maps.google.com/?q=Lake+Estes,+Estes+Park,+CO+80517", pricing: "Paddle boat ~$20/hr, Mini golf ~$8-10" },
+      { time: "4:00 PM", activity: "Check into Coyote Mountain Lodge", notes: "Itinerary #1658112994707402, PIN 5308", mapUrl: "https://maps.google.com/?q=1340+Big+Thompson+Ave,+Estes+Park,+CO+80517" },
+      { time: "5:00 PM", activity: "Estes Park Aerial Tramway (optional)", notes: "Ride to top of Prospect Mountain for panoramic views", mapUrl: "https://maps.google.com/?q=Estes+Park+Aerial+Tramway,+Estes+Park,+CO+80517", pricing: "Adults ~$18, Children (6-11) ~$10" },
+      { time: "7:00 PM", activity: "Dinner in Estes Park", notes: "See Estes Park dining options" },
+    ],
+    driving: "Denver → Estes Park (~1.5 hrs) + local driving",
+    totalDriving: "~2 hrs",
+  },
+  {
+    day: 6,
+    date: "August 3",
+    dayName: "Monday",
     theme: "Full day in RMNP: the highlight",
     location: "Rocky Mountain National Park",
     timeline: [
@@ -103,67 +170,29 @@ export const itinerary: DayPlan[] = [
       { time: "1:00 PM", activity: "Lily Lake", notes: "Easy 0.8-mile flat loop. Beautiful lily pads, very kid-friendly", mapUrl: "https://maps.google.com/?q=Lily+Lake,+Rocky+Mountain+National+Park,+CO" },
       { time: "2:30 PM", activity: "Return to Estes Park", notes: "" },
       { time: "3:30 PM", activity: "Rest/pool time at hotel", notes: "Aria will be tired" },
-      { time: "5:00 PM", activity: "Lake Estes", notes: "Walk the 3.3-mile paved path (do a section), or rent a paddle boat from Lake Estes Marina. Mini golf nearby", mapUrl: "https://maps.google.com/?q=Lake+Estes,+Estes+Park,+CO+80517", pricing: "Paddle boat ~$20/hr, Mini golf ~$8-10" },
-      { time: "7:00 PM", activity: "Dinner", notes: "" },
+      { time: "5:00 PM", activity: "Pack for tomorrow's early departure", notes: "Flight at 9:29 AM — need to be at DEN by 7:30 AM" },
+      { time: "6:30 PM", activity: "Farewell dinner in Estes Park", notes: "" },
     ],
     driving: "Estes Park → Bear Lake (~15 min) → internal park driving (~30 min) → back to Estes Park",
     totalDriving: "~1 hr in park + 30 min round trip",
     critical: "CRITICAL: You need a Timed Entry Permit! See recreation.gov",
   },
   {
-    day: 5,
-    date: "August 2",
-    dayName: "Sunday",
-    theme: "Travel day + Garden of the Gods + Manitou Springs",
-    location: "Estes Park → Manitou Springs → Colorado Springs",
-    timeline: [
-      { time: "8:00 AM", activity: "Breakfast + checkout", notes: "" },
-      { time: "9:00 AM", activity: "Drive Estes Park → Manitou Springs", notes: "~2 hrs via US-36 to I-25" },
-      { time: "11:00 AM", activity: "Manitou Springs", notes: "Quirky mountain town. Let Aria try the natural mineral springs (free, fun bubbling water). Browse penny arcades and candy shops", mapUrl: "https://maps.google.com/?q=Manitou+Springs,+CO+80829", pricing: "Mineral springs: Free" },
-      { time: "11:30 AM", activity: "Manitou Cliff Dwellings", notes: "Ancient Anasazi cliff dwellings (replica but impressive). Short walk, kid-friendly. ~$10 adults, ~$5 children", mapUrl: "https://maps.google.com/?q=Manitou+Cliff+Dwellings,+Manitou+Springs,+CO", pricing: "Adults ~$10, Children ~$5" },
-      { time: "12:30 PM", activity: "Lunch in Manitou Springs", notes: "Front Range BBQ or any caf\u00e9 along Ca\u00f1on Ave", mapUrl: "https://maps.google.com/?q=Front+Range+BBQ,+Manitou+Springs,+CO", pricing: "~$25-35 family" },
-      { time: "1:30 PM", activity: "Drive to Garden of the Gods", notes: "~10 min from Manitou Springs" },
-      { time: "1:45 PM", activity: "Garden of the Gods", notes: "FREE! 1.5-2 hrs. Easy paved trails, dramatic red rock formations. Visitor Center has interactive exhibits", mapUrl: "https://maps.google.com/?q=1805+N+30th+St,+Colorado+Springs,+CO+80904", pricing: "Free" },
-      { time: "3:30 PM", activity: "Check into Colorado Springs hotel", notes: "", mapUrl: "https://maps.google.com/?q=Colorado+Springs,+CO" },
-      { time: "4:00 PM", activity: "Cheyenne Mountain Zoo", notes: "2-3 hrs. Giraffe feeding, monkey exhibit, playground, built into mountainside", mapUrl: "https://maps.google.com/?q=4250+Cheyenne+Mountain+Zoo+Rd,+Colorado+Springs,+CO+80906", pricing: "Adults ~$24, Children ~$18, Under 3 Free" },
-      { time: "6:30 PM", activity: "Dinner", notes: "" },
-    ],
-    driving: "Estes Park → Manitou Springs (~2 hrs) → Garden of the Gods (10 min) → Hotel (~15 min)",
-    totalDriving: "~2.5 hrs",
-  },
-  {
-    day: 6,
-    date: "August 3",
-    dayName: "Monday",
-    theme: "Pikes Peak + water fun or relaxation",
-    location: "Colorado Springs",
-    timeline: [
-      { time: "7:30 AM", activity: "Early breakfast", notes: "" },
-      { time: "8:30 AM", activity: "Pikes Peak: drive or cog railway", notes: "Option A: Highway (~$15/person, self-drive). Option B: Cog Railway (~$55 adults, ~$28 children, 3 hrs). For Aria, the Cog Railway is more memorable", mapUrl: "https://maps.google.com/?q=Pikes+Peak,+Colorado", pricing: "Self-drive ~$15/person | Cog Railway ~$55 adult / ~$28 child" },
-      { time: "12:00 PM", activity: "Return to base", notes: "" },
-      { time: "1:00 PM", activity: "Lunch", notes: "" },
-      { time: "2:30 PM", activity: "CHOICE: Water activity", notes: "Option A: Boulder Creek Splash Park (FREE, downtown Colorado Springs). Option B: Hotel pool relaxation. Option C: Champion Landing Waterpark (Woodland Park, ~40 min)", mapUrl: "https://maps.google.com/?q=Boulder+Creek+Splash+Park,+Colorado+Springs,+CO", pricing: "Boulder Creek: Free | Waterpark: ~$25-30" },
-      { time: "4:30 PM", activity: "Old Colorado City", notes: "Walk around, antique shops, ice cream at Marble Bag", mapUrl: "https://maps.google.com/?q=Old+Colorado+City,+Colorado+Springs,+CO" },
-      { time: "6:30 PM", activity: "Farewell dinner", notes: "" },
-    ],
-    driving: "Hotel → Pikes Peak (~30 min) → local → hotel",
-    totalDriving: "~1.5 hrs",
-  },
-  {
     day: 7,
     date: "August 4",
     dayName: "Tuesday",
-    theme: "Easy morning, airport",
-    location: "Colorado Springs → Denver",
+    theme: "Early departure, fly home",
+    location: "Estes Park → Denver Airport",
     timeline: [
-      { time: "8:00 AM", activity: "Breakfast + checkout", notes: "" },
-      { time: "9:00 AM", activity: "Drive Colorado Springs → DEN", notes: "~1 hr 15 min" },
-      { time: "10:30 AM", activity: "Optional: Outlets at Castle Rock", notes: "40 min south of DEN, last-minute shopping (if flight is afternoon/evening)", mapUrl: "https://maps.google.com/?q=Outlets+at+Castle+Rock,+Castle+Rock,+CO", pricing: "Free entry" },
-      { time: "12:00 PM", activity: "Arrive DEN, return car", notes: "Allow 30 min for car return", mapUrl: "https://maps.google.com/?q=Denver+International+Airport,+8500+Pe%C3%B1a+Blvd,+Denver,+CO+80249" },
-      { time: "1:00 PM", activity: "Terminal, lunch, board flight", notes: "" },
+      { time: "5:30 AM", activity: "Early checkout from Coyote Mountain Lodge", notes: "Check out by 6:00 AM latest" },
+      { time: "6:00 AM", activity: "Drive Estes Park → DEN Airport", notes: "~1.5 hrs via US-34 E to I-25 S. Leave by 6 AM to arrive by 7:30 AM", mapUrl: "https://maps.google.com/?q=Denver+International+Airport,+8500+Pe%C3%B1a+Blvd,+Denver,+CO+80249" },
+      { time: "7:30 AM", activity: "Arrive DEN, return rental car", notes: "Allow 30 min for car return + shuttle to terminal" },
+      { time: "8:00 AM", activity: "Terminal, security, breakfast", notes: "Grab quick breakfast at airport" },
+      { time: "9:29 AM", activity: "Flight Delta 3876: DEN → AUS", notes: "Arrives Austin 12:44 PM" },
     ],
-    driving: "Colorado Springs → DEN (1 hr 15 min)",
-    totalDriving: "~1.25 hrs",
+    driving: "Estes Park → DEN (1.5 hrs)",
+    totalDriving: "~1.5 hrs",
+    critical: "Flight at 9:29 AM — MUST leave Estes Park by 6:00 AM",
   },
 ];
 
@@ -463,78 +492,46 @@ export type Hotel = {
   city: string;
   highlight?: string;
   mapUrl?: string;
+  confirmed?: boolean;
+  checkIn?: string;
+  checkOut?: string;
+  confirmationNo?: string;
 };
 
 export const hotels: Hotel[] = [
-  // Denver
+  // Denver — CONFIRMED BOOKING
   {
-    name: "Embassy Suites by Hilton Denver Southeast",
-    address: "8501 E Belleview Ave, Greenwood Village, CO 80111",
-    why: "Free hot breakfast, free evening reception (drinks + snacks), indoor pool, suites with separate living area (space for Aria), near I-25",
-    rate: "$180-250/night (July peak)",
-    distanceToAttraction: "~20 min to Denver Zoo",
+    name: "DoubleTree By Hilton Hotel Denver",
+    address: "3203 Quebec St, Denver, CO 80207",
+    why: "Confirmed booking. Full-service Hilton with indoor pool, restaurant, free WiFi. Near Cherry Creek and Denver Zoo",
+    rate: "Booked",
+    distanceToAttraction: "~15 min to Denver Zoo",
     booking: "https://www.hilton.com",
     bookingLabel: "hilton.com",
     city: "Denver",
-    highlight: "Free breakfast + evening reception saves ~$50-70/day for family",
-    mapUrl: "https://maps.google.com/?q=8501+E+Belleview+Ave,+Greenwood+Village,+CO+80111",
+    highlight: "CONFIRMED: Jul 29 – Aug 2 (4 nights). Itinerary #73485184920880",
+    mapUrl: "https://maps.google.com/?q=3203+Quebec+St,+Denver,+CO+80207",
+    confirmed: true,
+    checkIn: "Wed, Jul 29, 4:00 PM",
+    checkOut: "Sun, Aug 2, 11:00 AM",
+    confirmationNo: "73485184920880",
   },
+  // Estes Park — CONFIRMED BOOKING
   {
-    name: "Hampton Inn Denver Downtown",
-    address: "1450 Delaware St, Denver, CO 80204",
-    why: "Free hot breakfast, indoor pool, downtown location (walk to Union Station), modern rooms",
-    rate: "$170-230/night",
-    distanceToAttraction: "~10 min to Denver Zoo",
-    booking: "https://www.hilton.com",
-    bookingLabel: "hilton.com",
-    city: "Denver",
-    mapUrl: "https://maps.google.com/?q=1450+Delaware+St,+Denver,+CO+80204",
-  },
-  {
-    name: "Homewood Suites by Hilton Denver Tech Center",
-    address: "4444 S Syracuse St, Denver, CO 80237",
-    why: "Free breakfast, evening social (Mon-Thu), full kitchen in suites (save money on meals), indoor pool",
-    rate: "$160-220/night",
-    distanceToAttraction: "~20 min to DEN",
-    booking: "https://www.hilton.com",
-    bookingLabel: "hilton.com",
-    city: "Denver",
-    highlight: "Kitchenette saves money on meals",
-    mapUrl: "https://maps.google.com/?q=4444+S+Syracuse+St,+Denver,+CO+80237",
-  },
-  // Estes Park
-  {
-    name: "YMCA of the Rockies: Estes Park Center",
-    address: "2515 Tunnel Rd, Estes Park, CO 80517",
-    why: "THE family destination in Estes Park. Cabin-style lodging, massive activities program (mini golf, horseback riding, arts & crafts, swimming pool, playground, organized kids activities), beautiful mountain setting, very affordable",
-    rate: "$150-250/night (cabins sleep 4-8)",
+    name: "Coyote Mountain Lodge",
+    address: "1340 Big Thompson Ave, Estes Park, CO 80517",
+    why: "Confirmed booking. Mountain lodge setting, walking distance to downtown Estes Park, heated outdoor pool",
+    rate: "Booked",
     distanceToAttraction: "~10 min to RMNP entrance",
-    booking: "https://www.ymcarocks.org",
-    bookingLabel: "ymcarocks.org",
+    booking: "https://www.coyotemountainlodge.com",
+    bookingLabel: "coyotemountainlodge.com",
     city: "Estes Park",
-    highlight: "Best for families: tons of kid activities on-site. BOOK EARLY, fills up fast",
-    mapUrl: "https://maps.google.com/?q=2515+Tunnel+Rd,+Estes+Park,+CO+80517",
-  },
-  {
-    name: "Holiday Inn Estes Park",
-    address: "1635 W Highway 34, Estes Park, CO 80517",
-    why: "Reliable chain, indoor pool, free breakfast, restaurant on-site, walking distance to town",
-    rate: "$180-280/night (July peak)",
-    distanceToAttraction: "~5 min to RMNP entrance",
-    booking: "https://www.ihg.com",
-    bookingLabel: "ihg.com",
-    city: "Estes Park",
-    mapUrl: "https://maps.google.com/?q=1635+W+Highway+34,+Estes+Park,+CO+80517",
-  },
-  {
-    name: "Silver Moon Inn",
-    address: "200 W Riverside Dr, Estes Park, CO 80517",
-    why: "Riverfront location, heated outdoor pool, free breakfast, spacious rooms, walking distance to downtown",
-    rate: "$170-250/night",
-    booking: "https://www.silvermooninn.com",
-    bookingLabel: "silvermooninn.com",
-    city: "Estes Park",
-    mapUrl: "https://maps.google.com/?q=200+W+Riverside+Dr,+Estes+Park,+CO+80517",
+    highlight: "CONFIRMED: Aug 2 – Aug 4 (2 nights). Booking #1658112994707402",
+    mapUrl: "https://maps.google.com/?q=1340+Big+Thompson+Ave,+Estes+Park,+CO+80517",
+    confirmed: true,
+    checkIn: "Sun, Aug 2, 4:00 PM",
+    checkOut: "Tue, Aug 4, 11:00 AM",
+    confirmationNo: "1658112994707402",
   },
 ];
 

@@ -8,6 +8,7 @@ import TripCalendar from "@/components/calendar/TripCalendar";
 import DayTimeline from "@/components/timeline/DayTimeline";
 import AttractionCards from "@/components/attractions/AttractionCard";
 import HotelCards from "@/components/hotels/HotelCard";
+import FlightCard from "@/components/transport/FlightCard";
 import RestaurantCards from "@/components/dining/RestaurantCard";
 import CarRental from "@/components/transport/CarRental";
 import WeatherSafety from "@/components/safety/WeatherSafety";
@@ -36,6 +37,10 @@ export default function Home() {
 
         <Section id="itinerary" title="Day-by-Day Itinerary">
           <DayTimeline />
+        </Section>
+
+        <Section id="flights" title="Flights" subtitle="Delta Flight 3876 — Round trip">
+          <FlightCard />
         </Section>
 
         <Section id="attractions" title="Attractions" subtitle="All planned activities with pricing and tips">
