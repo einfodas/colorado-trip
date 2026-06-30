@@ -79,7 +79,7 @@ export const itinerary: DayPlan[] = [
       { time: "2:00 PM", activity: "Explore downtown Denver", notes: "16th Street Mall, Larimer Square, window shopping" },
       { time: "4:00 PM", activity: "Check into DoubleTree Denver", notes: "Rest, let Aria adjust to altitude. Itinerary #73485184920880", mapUrl: "https://maps.google.com/?q=3203+Quebec+St,+Denver,+CO+80207" },
       { time: "6:00 PM", activity: "Dinner at Illegal Pete's (LoDo)", notes: "Casual, affordable, kid-approved burritos", mapUrl: "https://maps.google.com/?q=1410+Larimer+St,+Denver,+CO+80202", pricing: "~$25-35 family" },
-      { time: "7:30 PM", activity: "Early bedtime", notes: "Altitude adjustment: critical first night" },
+      { time: "7:30 PM", activity: "Return to hotel, early bedtime", notes: "Altitude adjustment: critical first night" },
     ],
     driving: "DEN → Union Station (~30 min) → Hotel (~10 min) → LoDo (~15 min) → Hotel",
     totalDriving: "~55 min",
@@ -92,6 +92,7 @@ export const itinerary: DayPlan[] = [
     location: "Denver",
     timeline: [
       { time: "8:00 AM", activity: "Hotel breakfast", notes: "" },
+      { time: "8:45 AM", activity: "Leave hotel for Denver Zoo", notes: "~15 min drive" },
       { time: "9:00 AM", activity: "Denver Zoo", notes: "3-4 hrs. Arrive early, animals active in morning", mapUrl: "https://maps.google.com/?q=2900+E+23rd+Ave,+Denver,+CO+80205", pricing: "Adults ~$25, Children ~$19, Under 3 Free, Parking ~$10" },
       { time: "12:30 PM", activity: "Lunch at zoo or nearby", notes: "Zoo has food courts" },
       { time: "2:00 PM", activity: "Denver Museum of Nature & Science", notes: "2-3 hrs. DINOSAURS! Planetarium, IMAX, hands-on exhibits. RIGHT NEXT DOOR to the zoo (5-min walk, both in City Park)", mapUrl: "https://maps.google.com/?q=2001+Colorado+Blvd,+Denver,+CO+80205", pricing: "Adults ~$20, Children ~$15, Under 3 Free, IMAX ~$7-8" },
@@ -109,6 +110,7 @@ export const itinerary: DayPlan[] = [
     location: "Denver",
     timeline: [
       { time: "8:00 AM", activity: "Hotel breakfast", notes: "" },
+      { time: "9:15 AM", activity: "Leave hotel for Children's Museum", notes: "~15 min drive" },
       { time: "9:30 AM", activity: "Children's Museum of Denver", notes: "2-3 hrs. Purpose-built for young children. Water play area, climbing structures, art studio, pretend grocery store, train table. One of the best children's museums in the country", mapUrl: "https://maps.google.com/?q=2121+Children's+Museum+Dr,+Denver,+CO+80211", pricing: "All ages: ~$17-20 per person (flat rate), Under 1: Free" },
       { time: "12:30 PM", activity: "Lunch near Children's Museum", notes: "Highlands area has lots of family-friendly restaurants" },
       { time: "2:00 PM", activity: "Return to hotel, rest/pool time", notes: "Aria will be tired from the museum" },
@@ -127,6 +129,7 @@ export const itinerary: DayPlan[] = [
     location: "Denver → Golden → Boulder → Denver",
     timeline: [
       { time: "8:00 AM", activity: "Hotel breakfast", notes: "" },
+      { time: "8:45 AM", activity: "Leave hotel for Golden", notes: "~30 min drive" },
       { time: "9:00 AM", activity: "Drive to Golden, CO", notes: "~30 min from Denver", mapUrl: "https://maps.google.com/?q=Golden,+CO" },
       { time: "9:30 AM", activity: "Lookout Mountain + Buffalo Herd", notes: "FREE! Wild buffalo herd roaming on Lookout Mountain. Drive up, see buffalo from the car. Aria will LOVE this. Also: Lariat Loop scenic drive", mapUrl: "https://maps.google.com/?q=Lookout+Mountain,+Golden,+CO+80403", pricing: "Free" },
       { time: "10:30 AM", activity: "Drive Golden → Boulder", notes: "~20 min" },
@@ -168,6 +171,7 @@ export const itinerary: DayPlan[] = [
     location: "Rocky Mountain National Park",
     timeline: [
       { time: "6:30 AM", activity: "Early breakfast", notes: "Enter RMNP before 9 AM to beat crowds" },
+      { time: "7:15 AM", activity: "Leave hotel for RMNP", notes: "~15 min drive to Bear Lake" },
       { time: "7:30 AM", activity: "Bear Lake", notes: "Easy 0.6-mile loop. Stunning mountain reflections. Perfect for Aria", mapUrl: "https://maps.google.com/?q=Bear+Lake,+Rocky+Mountain+National+Park,+Estes+Park,+CO", pricing: "Park $30/vehicle + Timed Entry $2" },
       { time: "9:00 AM", activity: "Sprague Lake", notes: "Flat 0.8-mile loop, stroller accessible, incredible views. Elk often spotted here", mapUrl: "https://maps.google.com/?q=Sprague+Lake,+Rocky+Mountain+National+Park,+CO" },
       { time: "10:00 AM", activity: "Echo Lake", notes: "Quick stop: 0.5-mile loop, beautiful lake, feed ducks (bring bread!). Very kid-friendly. Right on the way back from Bear Lake", mapUrl: "https://maps.google.com/?q=Echo+Lake,+Rocky+Mountain+National+Park,+CO" },
