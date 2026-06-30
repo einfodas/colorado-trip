@@ -50,7 +50,7 @@ const cityColors: Record<string, CityColorSet> = {
   },
   Boulder: {
     bg: "bg-sky-50",
-    bgDark: "dark:bg-sky-900/20",
+    bgDark: "dark:bg-sky-950/20",
     text: "text-sky-800",
     textDark: "dark:text-sky-300",
     textMuted: "text-sky-700",
@@ -59,6 +59,18 @@ const cityColors: Record<string, CityColorSet> = {
     borderDark: "dark:border-sky-800",
     icon: "text-sky-600",
     iconDark: "dark:text-sky-400",
+  },
+  Golden: {
+    bg: "bg-yellow-50",
+    bgDark: "dark:bg-yellow-950/20",
+    text: "text-yellow-800",
+    textDark: "dark:text-yellow-300",
+    textMuted: "text-yellow-700",
+    textMutedDark: "dark:text-yellow-400",
+    border: "border-yellow-200",
+    borderDark: "dark:border-yellow-800",
+    icon: "text-yellow-600",
+    iconDark: "dark:text-yellow-400",
   },
 };
 
