@@ -4,7 +4,7 @@ import { flights } from "@/data/trip-data";
 export default function FlightCard() {
   return (
     <div className="space-y-6">
-      <div className="card p-6 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 border-2 border-blue-200 dark:border-blue-800">
+      <div className="card p-6 bg-blue-50/60 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800">
         <div className="flex items-center gap-3 mb-4">
           <div className="p-2 bg-blue-600 dark:bg-blue-500 rounded-lg">
             <Plane className="w-6 h-6 text-white" />
@@ -48,7 +48,7 @@ export default function FlightCard() {
                 </div>
 
                 <div className="flex flex-col items-center px-4">
-                  <div className="w-16 h-0.5 bg-gradient-to-r from-blue-400 to-indigo-400 relative">
+                  <div className="w-16 h-0.5 bg-blue-400 dark:bg-blue-500 relative">
                     <Plane className="w-4 h-4 text-blue-600 dark:text-blue-400 absolute -top-1.5 left-1/2 -translate-x-1/2 rotate-90" />
                   </div>
                   <span className="text-xs text-stone-500 dark:text-stone-400 mt-1">

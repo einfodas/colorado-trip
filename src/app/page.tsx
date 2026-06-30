@@ -31,7 +31,7 @@ export default function Home() {
           <Overview />
         </Section>
 
-        <Section id="calendar" title="7-Day Calendar" subtitle="Tap a day to jump to its timeline">
+        <Section id="calendar" title="7-Day Calendar" subtitle="Tap a day to jump to its timeline" bg="warm">
           <TripCalendar />
         </Section>
 
@@ -39,7 +39,7 @@ export default function Home() {
           <DayTimeline />
         </Section>
 
-        <Section id="flights" title="Flights" subtitle="Delta Flight 3876 — Round trip">
+        <Section id="flights" title="Flights" subtitle="Delta Flight 3876 — Round trip" bg="cool">
           <FlightCard />
         </Section>
 
@@ -47,7 +47,7 @@ export default function Home() {
           <AttractionCards />
         </Section>
 
-        <Section id="hotels" title="Hotels" subtitle="Accommodations by city">
+        <Section id="hotels" title="Hotels" subtitle="Accommodations by city" bg="warm">
           <HotelCards />
         </Section>
 
@@ -55,7 +55,7 @@ export default function Home() {
           <RestaurantCards />
         </Section>
 
-        <Section id="transport" title="Car Rental" subtitle="Comparison and tips">
+        <Section id="transport" title="Car Rental" subtitle="Comparison and tips" bg="cool">
           <CarRental />
         </Section>
 
@@ -63,7 +63,7 @@ export default function Home() {
           <WeatherSafety />
         </Section>
 
-        <Section id="altitude" title="Altitude & Health">
+        <Section id="altitude" title="Altitude & Health" bg="accent">
           <AltitudeHealth />
         </Section>
 
@@ -71,7 +71,7 @@ export default function Home() {
           <PackingChecklist />
         </Section>
 
-        <Section id="budget" title="Budget Breakdown">
+        <Section id="budget" title="Budget Breakdown" bg="warm">
           <BudgetBreakdown />
         </Section>
 
@@ -79,7 +79,7 @@ export default function Home() {
           <QuickLinks />
         </Section>
 
-        <Section id="actions" title="Pre-Trip Tasks">
+        <Section id="actions" title="Pre-Trip Tasks" bg="cool">
           <ActionItems />
         </Section>
       </main>

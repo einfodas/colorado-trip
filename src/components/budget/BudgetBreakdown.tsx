@@ -17,11 +17,11 @@ export default function BudgetBreakdown() {
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-stone-50 dark:bg-stone-800 border-b border-stone-200 dark:border-stone-700 transition-colors">
-                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">Category</th>
-                <th className="text-right px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">Low</th>
-                <th className="text-right px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">High</th>
-                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300 hidden md:table-cell">Notes</th>
+              <tr className="bg-emerald-50 dark:bg-emerald-950/30 border-b border-emerald-200 dark:border-emerald-800 transition-colors">
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-emerald-900 dark:text-emerald-200">Category</th>
+                <th className="text-right px-3 py-2.5 md:px-4 md:py-3 font-medium text-emerald-900 dark:text-emerald-200">Low</th>
+                <th className="text-right px-3 py-2.5 md:px-4 md:py-3 font-medium text-emerald-900 dark:text-emerald-200">High</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-emerald-900 dark:text-emerald-200 hidden md:table-cell">Notes</th>
               </tr>
             </thead>
             <tbody>

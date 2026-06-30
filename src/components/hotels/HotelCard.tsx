@@ -10,7 +10,7 @@ function HotelCard({ hotel }: { hotel: typeof hotels[0] }) {
   return (
     <div className={`card p-4 md:p-6 hover:shadow-md transition-shadow duration-200 ${
       isConfirmed 
-        ? "bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20 border-2 border-green-300 dark:border-green-700" 
+        ? "bg-emerald-50/60 dark:bg-emerald-950/30 border-2 border-emerald-300 dark:border-emerald-700" 
         : ""
     }`}>
       <div className="flex items-start justify-between gap-2 mb-3">

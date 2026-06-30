@@ -12,13 +12,13 @@ export default function WeatherSafety() {
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-stone-50 dark:bg-stone-800 border-b border-stone-200 dark:border-stone-700 transition-colors">
-                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">Location</th>
-                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">Elevation</th>
-                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">High</th>
-                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">Low</th>
-                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">Rain</th>
-                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300 hidden md:table-cell">Notes</th>
+              <tr className="bg-sky-50 dark:bg-sky-950/30 border-b border-sky-200 dark:border-sky-800 transition-colors">
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-sky-900 dark:text-sky-200">Location</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-sky-900 dark:text-sky-200">Elevation</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-sky-900 dark:text-sky-200">High</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-sky-900 dark:text-sky-200">Low</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-sky-900 dark:text-sky-200">Rain</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-sky-900 dark:text-sky-200 hidden md:table-cell">Notes</th>
               </tr>
             </thead>
             <tbody>

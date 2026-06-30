@@ -7,12 +7,12 @@ export default function CarRental() {
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-stone-50 dark:bg-stone-800 border-b border-stone-200 dark:border-stone-700 transition-colors">
-                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">Company</th>
-                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">Vehicle</th>
-                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">Rate</th>
-                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300">Total</th>
-                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-700 dark:text-stone-300 hidden md:table-cell">Notes</th>
+              <tr className="bg-amber-50 dark:bg-amber-950/30 border-b border-amber-200 dark:border-amber-800 transition-colors">
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-amber-900 dark:text-amber-200">Company</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-amber-900 dark:text-amber-200">Vehicle</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-amber-900 dark:text-amber-200">Rate</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-amber-900 dark:text-amber-200">Total</th>
+                <th className="text-left px-3 py-2.5 md:px-4 md:py-3 font-medium text-amber-900 dark:text-amber-200 hidden md:table-cell">Notes</th>
               </tr>
             </thead>
             <tbody>
