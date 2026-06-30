@@ -4,8 +4,8 @@ export default function Hero() {
   return (
     <div className="relative w-full h-[50vh] min-h-[320px] md:h-[60vh] overflow-hidden">
       <img
-        src="/colorado-trip/images/graduation-hero.jpg"
-        alt="Graduation celebration at sunset"
+        src="/colorado-trip/images/hero-image.jpg"
+        alt="Colorado mountain valley in autumn"
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
