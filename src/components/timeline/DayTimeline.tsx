@@ -296,6 +296,13 @@ export default function DayTimeline() {
                     </div>
                   )}
 
+                  {day.rainPlan && (
+                    <div className="mb-4 flex items-start gap-2 p-3 rounded-lg bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800">
+                      <Droplets className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                      <p className="text-sm text-blue-800 dark:text-blue-200">{day.rainPlan}</p>
+                    </div>
+                  )}
+
                   <div className="relative">
                     {day.timeline.map((item, itemIdx) => (
                       <TimelineItem key={itemIdx} item={item} isLast={itemIdx === day.timeline.length - 1} />

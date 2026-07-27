@@ -16,6 +16,7 @@ const navLinks = [
   { label: "Safety", href: "#safety" },
   { label: "Packing", href: "#packing" },
   { label: "Budget", href: "#budget" },
+  { label: "Weather", href: "/weather" },
   { label: "Links", href: "#links" },
   { label: "Tasks", href: "#actions" },
 ];

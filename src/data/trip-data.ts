@@ -85,6 +85,7 @@ export type DayPlan = {
   totalDriving: string;
   location: string;
   critical?: string;
+  rainPlan?: string;
 };
 
 export const itinerary: DayPlan[] = [
@@ -108,6 +109,7 @@ export const itinerary: DayPlan[] = [
     ],
     driving: "DEN → Union Station (~30 min) → Hotel (~10 min) → LoDo (~15 min) → Hotel",
     totalDriving: "~55 min",
+    rainPlan: "Denver Union Station + Milkbox Ice Creamery are indoors. 16th Street Mall covered walkways. Downtown Aquarium (indoor, ~$30-35 adult) as backup afternoon activity.",
   },
   {
     day: 2,
@@ -126,6 +128,7 @@ export const itinerary: DayPlan[] = [
     ],
     driving: "Hotel → Zoo (~15 min) → Museum (~5 min walk) → Hotel (~15 min)",
     totalDriving: "~30 min",
+    rainPlan: "Denver Museum of Nature & Science is fully indoors. If heavy morning rain, skip Zoo and do extended museum + IMAX + Planetarium instead.",
   },
   {
     day: 3,
@@ -145,6 +148,7 @@ export const itinerary: DayPlan[] = [
     ],
     driving: "Hotel → Children's Museum (~15 min) → Red Rocks (~30 min) → Hotel (~30 min)",
     totalDriving: "~1.25 hrs",
+    rainPlan: "Children's Museum is indoors. Red Rocks can swap for Downtown Aquarium or extended Children's Museum visit if heavy afternoon rain.",
   },
   {
     day: 4,
@@ -165,6 +169,7 @@ export const itinerary: DayPlan[] = [
     ],
     driving: "Denver → Golden (30 min) → Boulder (20 min) → Denver (45 min)",
     totalDriving: "~1.5 hrs",
+    rainPlan: "Buffalo herd viewing is from car (fine in rain). If heavy rain, swap Flatirons hike for indoor Boulder: ABC Kids Climbing, Museum of Boulder, or Pearl Street Mall shops with covered walkways.",
   },
   {
     day: 5,
@@ -188,6 +193,7 @@ export const itinerary: DayPlan[] = [
     ],
     driving: "Denver → Colorado Springs (1 hr) → Manitou Springs (10 min) → Estes Park (2 hrs)",
     totalDriving: "~3.5 hrs",
+    rainPlan: "Garden of the Gods paved trails work in light rain. Manitou Springs has indoor candy shops and arcades. If heavy rain, skip Garden of the Gods, do Manitou Springs indoor activities, then drive directly to Estes Park.",
   },
   {
     day: 6,
@@ -212,6 +218,7 @@ export const itinerary: DayPlan[] = [
     driving: "Estes Park → Bear Lake (~15 min) → internal park driving (~30 min) → back to Estes Park",
     totalDriving: "~1 hr in park + 30 min round trip",
     critical: "CRITICAL: You need a Timed Entry Permit! See recreation.gov",
+    rainPlan: "Afternoon thunderstorms daily. Plan ALL hikes before noon. If all-day rain: swap for Estes Park indoor activities — Estes Park Museum, Creativity Cabin pottery painting, The Bull Pin bowling/arcade, or Time Emporium Escape Room.",
   },
   {
     day: 7,
@@ -229,6 +236,7 @@ export const itinerary: DayPlan[] = [
     driving: "Estes Park → DEN (1.5 hrs)",
     totalDriving: "~1.5 hrs",
     critical: "Flight at 9:29 AM — MUST leave Estes Park by 6:00 AM",
+    rainPlan: "Minimal rain concern — mostly in car/airport. If road conditions bad, allow extra 30 min for Estes Park → DEN drive via US-36 instead of US-34.",
   },
 ];
 
@@ -316,7 +324,7 @@ export const attractions: Attraction[] = [
       "Book at recreation.gov: search 'Rocky Mountain'",
       "Enter before 9 AM to avoid parking nightmares",
       "Bear Lake parking fills by 8:30 AM on weekends, go early or use shuttle",
-      "Pack layers: temperature drops 10-20°F at higher elevations",
+      "Pack layers: temperature drops 5-11°C at higher elevations",
       "Bring LOTS of water and snacks",
       "Watch for altitude symptoms in Aria above 10,000ft",
     ],
@@ -363,7 +371,7 @@ export const attractions: Attraction[] = [
       "If Aria complains of headache or nausea, descend immediately",
       "Cog Railway is more memorable but takes longer (~3 hrs round trip)",
       "Highway drive is ~1.5 hrs round trip",
-      "Dress warmly at summit even in summer (can be 30-40°F)",
+      "Dress warmly at summit even in summer (can be -1 to 4°C)",
       "Book Cog Railway in advance, sells out",
     ],
     website: "https://pikespeak.com",
@@ -643,11 +651,11 @@ export type WeatherData = {
 };
 
 export const weatherData: WeatherData[] = [
-  { location: "Denver", elevation: "5,280 ft", avgHigh: "87-90°F", avgLow: "60-64°F", rainDays: "6-8/month", notes: "Hot afternoons, cool evenings" },
-  { location: "Boulder", elevation: "5,430 ft", avgHigh: "86-89°F", avgLow: "58-62°F", rainDays: "6-8/month", notes: "Similar to Denver" },
-  { location: "Estes Park", elevation: "7,522 ft", avgHigh: "78-82°F", avgLow: "50-55°F", rainDays: "8-10/month", notes: "Cooler, more rain" },
-  { location: "Colorado Springs", elevation: "6,035 ft", avgHigh: "83-86°F", avgLow: "55-58°F", rainDays: "7-9/month", notes: "Slightly cooler than Denver" },
-  { location: "RMNP Summit", elevation: "12,183 ft", avgHigh: "50-60°F", avgLow: "35-42°F", rainDays: "Daily storms", notes: "Can snow even in August!" },
+  { location: "Denver", elevation: "5,280 ft", avgHigh: "31-32°C", avgLow: "16-18°C", rainDays: "6-8/month", notes: "Hot afternoons, cool evenings" },
+  { location: "Boulder", elevation: "5,430 ft", avgHigh: "30-32°C", avgLow: "14-17°C", rainDays: "6-8/month", notes: "Similar to Denver" },
+  { location: "Estes Park", elevation: "7,522 ft", avgHigh: "26-28°C", avgLow: "10-13°C", rainDays: "8-10/month", notes: "Cooler, more rain" },
+  { location: "Colorado Springs", elevation: "6,035 ft", avgHigh: "28-30°C", avgLow: "13-14°C", rainDays: "7-9/month", notes: "Slightly cooler than Denver" },
+  { location: "RMNP Summit", elevation: "12,183 ft", avgHigh: "10-16°C", avgLow: "2-6°C", rainDays: "Daily storms", notes: "Can snow even in August!" },
 ];
 
 export const safetyRules: SafetyRule[] = [

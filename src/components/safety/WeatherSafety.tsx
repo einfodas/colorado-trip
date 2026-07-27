@@ -80,6 +80,13 @@ export default function WeatherSafety() {
           );
         })}
       </div>
+
+      <a
+        href="/weather"
+        className="inline-flex items-center gap-1 text-sm text-sky-600 dark:text-sky-400 hover:underline self-start"
+      >
+        Detailed weather by day →
+      </a>
     </div>
   );
 }
