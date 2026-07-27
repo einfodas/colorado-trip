@@ -1,36 +1,19 @@
 "use client";
 
-import { useState, useCallback } from "react";
-import { beforeYouLeave } from "@/data/trip-data";
+import { beforeYouLeave, type BeforeYouLeaveItem } from "@/data/trip-data";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 const STORAGE_KEY = "colorado-trip-actions";
 
-const priorityColors = {
+const priorityColors: Record<BeforeYouLeaveItem["priority"], { dot: string; badge: string }> = {
   critical: { dot: "bg-red-600", badge: "bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400" },
   important: { dot: "bg-amber-500", badge: "bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400" },
   nice: { dot: "bg-emerald-500", badge: "bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400" },
   completed: { dot: "bg-stone-400", badge: "bg-stone-100 dark:bg-stone-700 text-stone-500 dark:text-stone-400" },
 };
 
-function loadChecked(): Record<string, boolean> {
-  try {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    return stored ? JSON.parse(stored) : {};
-  } catch {
-    return {};
-  }
-}
-
 export default function ActionItems() {
-  const [checked, setCheckedRaw] = useState<Record<string, boolean>>(loadChecked);
-
-  const setChecked = useCallback((updater: (prev: Record<string, boolean>) => Record<string, boolean>) => {
-    setCheckedRaw((prev) => {
-      const next = updater(prev);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-      return next;
-    });
-  }, []);
+  const [checked, setChecked] = useLocalStorage<Record<string, boolean>>(STORAGE_KEY, {});
 
   const toggle = (task: string) => {
     setChecked((prev) => ({ ...prev, [task]: !prev[task] }));
@@ -41,7 +24,7 @@ export default function ActionItems() {
       <ul className="space-y-3">
         {beforeYouLeave.map((item) => {
           const isChecked = !!checked[item.task];
-          const colors = priorityColors[item.priority as keyof typeof priorityColors];
+          const colors = priorityColors[item.priority];
           return (
             <li key={item.task}>
               <label className="flex items-start gap-3 cursor-pointer active:scale-[0.98] transition-transform duration-100">

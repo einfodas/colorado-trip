@@ -2,10 +2,7 @@ import { MapPin, Clock, DollarSign, ExternalLink, Sparkles } from "lucide-react"
 import { attractions, bonusAttractions } from "@/data/trip-data";
 import type { Attraction } from "@/data/trip-data";
 import { getCityColor } from "@/lib/colors";
-
-function slugify(name: string): string {
-  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-}
+import { slugify } from "@/lib/slugify";
 
 function AttractionCard({ attraction }: { attraction: Attraction }) {
   const cc = getCityColor(attraction.city);

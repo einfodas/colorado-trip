@@ -1,10 +1,7 @@
 import { MapPin, DollarSign, ArrowDown } from "lucide-react";
 import type { TimelineItem as TimelineItemType } from "@/data/trip-data";
 import { attractions, bonusAttractions } from "@/data/trip-data";
-
-function slugify(name: string): string {
-  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-}
+import { slugify } from "@/lib/slugify";
 
 // All searchable attractions (main + bonus)
 const allAttractions = [...attractions, ...bonusAttractions];

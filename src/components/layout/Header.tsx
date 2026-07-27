@@ -24,23 +24,6 @@ export default function Header() {
   const { theme, toggle } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    setMobileMenuOpen(false);
-    const id = href.replace('#', '');
-    const element = document.getElementById(id);
-    if (element) {
-      const rect = element.getBoundingClientRect();
-      const offset = 80;
-      const targetScroll = rect.top + window.scrollY - offset;
-      window.scrollTo({
-        top: targetScroll,
-        behavior: 'instant'
-      });
-      window.history.pushState(null, '', href);
-    }
-  };
-
   return (
     <header className="sticky top-0 z-50 bg-surface dark:bg-stone-800 border-b border-stone-200 dark:border-stone-700 transition-colors">
       <div className="flex items-center justify-between h-14 px-4 max-w-6xl mx-auto">
@@ -53,7 +36,7 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
+              onClick={() => setMobileMenuOpen(false)}
               className="px-2.5 py-1.5 text-sm text-stone-600 dark:text-stone-400 hover:text-blue-700 dark:hover:text-blue-400 rounded-md hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
             >
               {link.label}
@@ -102,7 +85,7 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
+              onClick={() => setMobileMenuOpen(false)}
               className="block px-3 py-2.5 text-base text-stone-700 dark:text-stone-300 hover:text-blue-700 dark:hover:text-blue-400 hover:bg-stone-50 dark:hover:bg-stone-800 rounded-lg"
               style={{ touchAction: 'manipulation' }}
             >

@@ -1,3 +1,4 @@
+// Updated for v2
 // Colorado Family Vacation Plan — All trip data
 // Source: Obsidian vault Research/Colorado-Family-Vacation-Plan-July-2026.md
 // Updated: June 23, 2026 — includes Denver Museum of Nature & Science, Manitou Springs, Golden/Buffalo Herd, Echo Lake, Lake Estes
@@ -9,6 +10,30 @@ export const tripMeta = {
   family: ["Jay", "Moon", "Aria (age 5)"],
   budgetRange: "$2,540 – $4,200 (excl. flights)",
   baseCities: "Denver (4 nights) + Estes Park (2 nights)",
+};
+
+export type BeforeYouLeaveItem = {
+  task: string;
+  deadline: string;
+  priority: "critical" | "important" | "nice" | "completed";
+};
+
+export type CarAdditionalCost = {
+  item: string;
+  cost: string;
+  tip: string;
+};
+
+export type SafetyRule = {
+  rule: string;
+  detail: string;
+};
+
+export type BudgetRow = {
+  category: string;
+  low: string;
+  high: string;
+  notes?: string;
 };
 
 export type Flight = {
@@ -562,7 +587,7 @@ export const carRentals: CarRental[] = [
   { company: "National", vehicleType: "Mid-size SUV", dailyRate: "$90-140/day", total: "$540-840", notes: "Business-class, on-site" },
 ];
 
-export const carAdditionalCosts = [
+export const carAdditionalCosts: CarAdditionalCost[] = [
   { item: "Child car seat", cost: "~$10-15/day ($60-90 total)", tip: "OR bring your own (saves $60-90)" },
   { item: "Insurance", cost: "Likely covered by credit card", tip: "Check before trip: skip rental company insurance" },
   { item: "Gas", cost: "~$60-80 for the week", tip: "Mountain driving uses more fuel" },
@@ -625,7 +650,7 @@ export const weatherData: WeatherData[] = [
   { location: "RMNP Summit", elevation: "12,183 ft", avgHigh: "50-60°F", avgLow: "35-42°F", rainDays: "Daily storms", notes: "Can snow even in August!" },
 ];
 
-export const safetyRules = [
+export const safetyRules: SafetyRule[] = [
   { rule: "Afternoon Thunderstorms", detail: "Colorado summer = sunny mornings, thunderstorms developing 2-4 PM. Be off exposed mountain ridges and summits by noon. Afternoon lightning is dangerous above treeline." },
   { rule: "For RMNP", detail: "Plan morning hikes, return to lower elevations or the car by early afternoon." },
   { rule: "Aria Safety", detail: "If thunderstorms hit while driving, stay in the car. If hiking, get below treeline immediately." },
@@ -736,7 +761,7 @@ export const packingList: PackingItem[] = [
   },
 ];
 
-export const beforeYouLeave = [
+export const beforeYouLeave: BeforeYouLeaveItem[] = [
   { task: "Book RMNP Timed Entry Permits", deadline: "July 1 at 8:00 AM MT", priority: "critical" },
   { task: "Book car rental (SUV at DEN)", deadline: "ASAP, July is peak season", priority: "critical" },
   { task: "Book hotels (both locations)", deadline: "ALREADY BOOKED", priority: "completed" },
@@ -749,12 +774,7 @@ export const beforeYouLeave = [
   { task: "Print RMNP trail maps (cell service is spotty)", deadline: "1 day before", priority: "nice" },
 ];
 
-export type BudgetRow = {
-  category: string;
-  low: string;
-  high: string;
-  notes: string;
-};
+
 
 export const budgetRows: BudgetRow[] = [
   { category: "Hotels (6 nights)", low: "$1,000", high: "$1,500", notes: "Split stay, mid-range family hotels" },

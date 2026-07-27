@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useTheme } from "@/hooks/useTheme";
 import { CalendarDays, MapPin, Home, Info, ClipboardList, Sun, Moon, type LucideIcon } from "lucide-react";
 
@@ -11,8 +12,36 @@ const navItems: { label: string; href: string; icon: LucideIcon }[] = [
   { label: "Checklist", href: "#packing", icon: ClipboardList },
 ];
 
+function useActiveSection(ids: string[]): string | null {
+  const [active, setActive] = useState<string | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        }
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+
+    for (const id of ids) {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    }
+
+    return () => observer.disconnect();
+  }, [ids]);
+
+  return active;
+}
+
 export default function MobileNav() {
   const { theme, toggle } = useTheme();
+  const sectionIds = navItems.map((item) => item.href.replace("#", ""));
+  const activeSection = useActiveSection(sectionIds);
 
   return (
     <nav
@@ -25,17 +54,22 @@ export default function MobileNav() {
       }}
     >
       <div className="flex items-center justify-around h-16">
-        {navItems.map((item) => (
-          <a
-            key={item.href}
-            href={item.href}
-            className="flex flex-col items-center justify-center w-full h-full text-stone-500 dark:text-stone-400 active:text-blue-700 dark:active:text-blue-400 min-w-[44px] cursor-pointer"
-            style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'rgba(59, 130, 246, 0.2)' }}
-          >
-            <item.icon className="w-6 h-6" strokeWidth={1.5} />
-            <span className="text-[10px] mt-0.5 font-medium">{item.label}</span>
-          </a>
-        ))}
+        {navItems.map((item) => {
+          const sectionId = item.href.replace("#", "");
+          const isActive = activeSection === sectionId;
+          return (
+            <a
+              key={item.href}
+              href={item.href}
+              aria-current={isActive ? "true" : undefined}
+              className="flex flex-col items-center justify-center w-full h-full text-stone-500 dark:text-stone-400 active:text-blue-700 dark:active:text-blue-400 min-w-[44px] cursor-pointer"
+              style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'rgba(59, 130, 246, 0.2)' }}
+            >
+              <item.icon className="w-6 h-6" strokeWidth={1.5} />
+              <span className="text-[10px] mt-0.5 font-medium">{item.label}</span>
+            </a>
+          );
+        })}
         <button
           onClick={toggle}
           className="flex flex-col items-center justify-center w-full h-full text-stone-500 dark:text-stone-400 active:text-blue-700 dark:active:text-blue-400 min-w-[44px] cursor-pointer"

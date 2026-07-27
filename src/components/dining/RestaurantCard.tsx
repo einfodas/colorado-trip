@@ -2,7 +2,7 @@ import { MapPin, DollarSign, UtensilsCrossed, ExternalLink } from "lucide-react"
 import { restaurants } from "@/data/trip-data";
 import { getCityColor } from "@/lib/colors";
 
-const cities = ["Denver", "Boulder", "Estes Park", "Colorado Springs"];
+const cities = [...new Set(restaurants.map((r) => r.city))];
 
 function RestaurantCard({ restaurant }: { restaurant: typeof restaurants[0] }) {
   return (

@@ -1,15 +1,13 @@
 import { budgetRows, costSavingStrategies } from "@/data/trip-data";
 
 export default function BudgetBreakdown() {
-  const totalLow = budgetRows.reduce((sum, r) => {
-    const num = parseInt(r.low.replace(/[^0-9]/g, ""));
-    return sum + (isNaN(num) ? 0 : num);
-  }, 0);
+  const parseNum = (s: string): number => {
+    const m = s.match(/\d+/);
+    return m ? parseInt(m[0], 10) : 0;
+  };
 
-  const totalHigh = budgetRows.reduce((sum, r) => {
-    const num = parseInt(r.high.replace(/[^0-9]/g, ""));
-    return sum + (isNaN(num) ? 0 : num);
-  }, 0);
+  const totalLow = budgetRows.reduce((sum, r) => sum + parseNum(r.low), 0);
+  const totalHigh = budgetRows.reduce((sum, r) => sum + parseNum(r.high), 0);
 
   return (
     <div className="flex flex-col gap-6">
@@ -30,7 +28,7 @@ export default function BudgetBreakdown() {
                   <td className="px-3 py-2.5 md:px-4 md:py-3 font-medium text-stone-900 dark:text-stone-100">{row.category}</td>
                   <td className="px-3 py-2.5 md:px-4 md:py-3 text-right text-stone-600 dark:text-stone-400 tabular-nums">{row.low}</td>
                   <td className="px-3 py-2.5 md:px-4 md:py-3 text-right text-stone-600 dark:text-stone-400 tabular-nums">{row.high}</td>
-                  <td className="px-3 py-2.5 md:px-4 md:py-3 text-stone-600 dark:text-stone-400 hidden md:table-cell">{row.notes}</td>
+                  <td className="px-3 py-2.5 md:px-4 md:py-3 text-stone-600 dark:text-stone-400 hidden md:table-cell">{row.notes ?? ""}</td>
                 </tr>
               ))}
               <tr className="bg-blue-50 dark:bg-blue-900/20 font-bold transition-colors">

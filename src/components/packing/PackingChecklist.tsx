@@ -1,29 +1,12 @@
 "use client";
 
-import { useState, useCallback } from "react";
 import { packingList } from "@/data/trip-data";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 const STORAGE_KEY = "colorado-trip-packing";
 
-function loadChecked(): Record<string, boolean> {
-  try {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    return stored ? JSON.parse(stored) : {};
-  } catch {
-    return {};
-  }
-}
-
 export default function PackingChecklist() {
-  const [checked, setCheckedRaw] = useState<Record<string, boolean>>(loadChecked);
-
-  const setChecked = useCallback((updater: (prev: Record<string, boolean>) => Record<string, boolean>) => {
-    setCheckedRaw((prev) => {
-      const next = updater(prev);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-      return next;
-    });
-  }, []);
+  const [checked, setChecked] = useLocalStorage<Record<string, boolean>>(STORAGE_KEY, {});
 
   const toggle = (key: string) => {
     setChecked((prev) => ({ ...prev, [key]: !prev[key] }));

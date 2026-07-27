@@ -36,14 +36,33 @@ type PackingBadge = {
   label: string;
 };
 
-const dayWeatherMap: Record<number, DayWeather> = {
-  1: { icon: Sun, high: "87-90°F", low: "60-64°F", label: "Denver" },
-  2: { icon: Sun, high: "87-90°F", low: "60-64°F", label: "Denver" },
-  3: { icon: Cloud, high: "78-82°F", low: "50-55°F", label: "Estes Park" },
-  4: { icon: Snowflake, high: "50-60°F", low: "35-42°F", label: "RMNP Summit" },
-  5: { icon: Sun, high: "83-86°F", low: "55-58°F", label: "Colorado Springs" },
-  6: { icon: Cloud, high: "83-86°F", low: "55-58°F", label: "Colorado Springs" },
-  7: { icon: Sun, high: "87-90°F", low: "60-64°F", label: "Denver" },
+type AltitudeInfo = {
+  maxElevation: string;
+  riskLevel: string;
+  color: string;
+};
+
+const dayPrimaryLocation: Record<number, string> = {
+  1: "Denver",
+  2: "Denver",
+  3: "Denver",
+  4: "Denver",
+  5: "Estes Park",
+  6: "RMNP Summit",
+  7: "Denver",
+};
+
+const weatherIconMap: Record<string, typeof Sun> = {
+  Denver: Sun,
+  Boulder: Sun,
+  "Estes Park": Cloud,
+  "Colorado Springs": Sun,
+  "RMNP Summit": Snowflake,
+};
+
+const dayAltitudeLocation: Record<number, string> = {
+  5: "Estes Park",
+  6: "RMNP Trail Ridge",
 };
 
 const dayPackingMap: Record<number, PackingBadge[]> = {
@@ -83,16 +102,6 @@ const dayPackingMap: Record<number, PackingBadge[]> = {
   ],
 };
 
-const dayAltitudeMap: Record<number, { maxElevation: string; riskLevel: string; color: string } | null> = {
-  1: null,
-  2: null,
-  3: null,
-  4: { maxElevation: "12,183 ft", riskLevel: "Very High", color: "red" },
-  5: null,
-  6: { maxElevation: "14,115 ft", riskLevel: "Extreme", color: "red" },
-  7: null,
-};
-
 const jumpLinks = [
   { id: "attractions", label: "Attractions", icon: Compass },
   { id: "hotels", label: "Hotels", icon: Bed },
@@ -102,10 +111,33 @@ const jumpLinks = [
   { id: "packing", label: "Packing", icon: Package },
 ];
 
+function getDayWeather(day: number): DayWeather {
+  const loc = dayPrimaryLocation[day];
+  const entry = weatherData.find((w) => w.location === loc);
+  if (!entry) return { icon: Sun, high: "--", low: "--", label: loc };
+  return {
+    icon: weatherIconMap[loc] ?? Sun,
+    high: entry.avgHigh,
+    low: entry.avgLow,
+    label: loc,
+  };
+}
+
+function getDayAltitude(day: number): AltitudeInfo | null {
+  const loc = dayAltitudeLocation[day];
+  if (!loc) return null;
+  const entry = altitudeData.find((a) => a.location === loc);
+  if (!entry) return null;
+  return {
+    maxElevation: entry.elevation,
+    riskLevel: entry.riskLevel,
+    color: entry.color,
+  };
+}
+
 export default function DayTimeline() {
   const [openDay, setOpenDay] = useState(1);
 
-  // Listen for hash changes to auto-expand the targeted day
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash;
@@ -113,12 +145,9 @@ export default function DayTimeline() {
         const dayNum = parseInt(hash.replace('#day-', ''), 10);
         if (!isNaN(dayNum) && dayNum >= 1 && dayNum <= 7) {
           setOpenDay(dayNum);
-          // Wait for accordion animation to fully complete (500ms)
-          // then scroll to the final stable position
           setTimeout(() => {
             const element = document.getElementById(`day-${dayNum}`);
             if (element) {
-              // Use requestAnimationFrame to ensure layout is settled
               requestAnimationFrame(() => {
                 const rect = element.getBoundingClientRect();
                 const offset = 80;
@@ -133,9 +162,7 @@ export default function DayTimeline() {
       }
     };
 
-    // Check initial hash on mount
     handleHashChange();
-
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
@@ -144,11 +171,12 @@ export default function DayTimeline() {
     <div className="flex flex-col gap-4">
       {itinerary.map((day) => {
         const cc = getCityColor(getCityFromLocation(day.location));
-        const weather = dayWeatherMap[day.day];
+        const weather = getDayWeather(day.day);
         const packing = dayPackingMap[day.day];
-        const altitude = dayAltitudeMap[day.day];
+        const altitude = getDayAltitude(day.day);
         const isOpen = openDay === day.day;
         const WeatherIcon = weather.icon;
+        const panelId = `day-panel-${day.day}`;
 
         return (
           <div
@@ -167,7 +195,6 @@ export default function DayTimeline() {
               onClick={() => {
                 const willOpen = !isOpen;
                 setOpenDay(willOpen ? day.day : -1);
-                // Scroll to this day after accordion animation completes
                 if (willOpen) {
                   setTimeout(() => {
                     requestAnimationFrame(() => {
@@ -183,6 +210,8 @@ export default function DayTimeline() {
                   }, 500);
                 }
               }}
+              aria-expanded={isOpen}
+              aria-controls={panelId}
               className="w-full flex items-stretch cursor-pointer select-none text-left"
               style={{ touchAction: "manipulation" }}
             >
@@ -226,6 +255,9 @@ export default function DayTimeline() {
             </button>
 
             <div
+              id={panelId}
+              role="region"
+              aria-labelledby={`day-btn-${day.day}`}
               className="grid transition-[grid-template-rows] duration-300 ease-out"
               style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
             >

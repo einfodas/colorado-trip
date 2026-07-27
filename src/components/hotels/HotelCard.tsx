@@ -2,7 +2,7 @@ import { MapPin, DollarSign, Car, ExternalLink, Star, Calendar, CheckCircle } fr
 import { hotels } from "@/data/trip-data";
 import { getCityColor } from "@/lib/colors";
 
-const cities = ["Denver", "Estes Park", "Colorado Springs"];
+const cities = [...new Set(hotels.map((h) => h.city))];
 
 function HotelCard({ hotel }: { hotel: typeof hotels[0] }) {
   const isConfirmed = hotel.confirmed;

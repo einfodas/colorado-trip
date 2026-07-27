@@ -25,7 +25,7 @@ export default function Section({
         <h2 className="font-display text-2xl md:text-3xl font-normal tracking-tight leading-tight text-stone-900 dark:text-stone-100">
           {title}
         </h2>
-        <div className="h-0.5 w-12 origin-left rounded-full bg-stone-300 dark:bg-stone-600 mt-2 transition-transform duration-300 ease-out group-hover:scale-x-200" />
+        <div className="h-0.5 w-12 origin-left rounded-full bg-stone-300 dark:bg-stone-600 mt-2 transition-transform duration-300 ease-out group-hover:scale-x-[2]" />
         {subtitle && (
           <p className="mt-2 text-base text-stone-600 dark:text-stone-400">{subtitle}</p>
         )}

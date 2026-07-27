@@ -1,12 +1,19 @@
 import { quickLinks } from "@/data/trip-data";
 import { getCityColor } from "@/lib/colors";
 
-const categories: { name: string; city: string }[] = [
-  { name: "Attractions", city: "Denver" },
-  { name: "Hotels", city: "Estes Park" },
-  { name: "Car Rental", city: "Colorado Springs" },
-  { name: "Weather & Safety", city: "Boulder" },
-];
+const categories: { name: string; city: string }[] = (() => {
+  const unique = [...new Set(quickLinks.map((l) => l.category))];
+  const cityForCategory: Record<string, string> = {
+    Attractions: "Denver",
+    Hotels: "Estes Park",
+    "Car Rental": "Colorado Springs",
+    "Weather & Safety": "Boulder",
+  };
+  return unique.map((name) => ({
+    name,
+    city: cityForCategory[name] ?? "Denver",
+  }));
+})();
 
 export default function QuickLinks() {
   return (

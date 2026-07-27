@@ -39,37 +39,46 @@ export default function WeatherSafety() {
 
       <div className="flex flex-col gap-3">
         <h3 className="font-display text-lg font-normal tracking-tight leading-tight text-stone-900 dark:text-stone-100">Safety Rules</h3>
-        {safetyRules.map((rule, idx) => (
-          <div key={idx} className="card overflow-hidden">
-            <button
-              onClick={() => setExpandedRule(expandedRule === idx ? null : idx)}
-              className="w-full flex items-center justify-between px-4 py-3 text-left cursor-pointer hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors"
-              style={{ touchAction: 'manipulation' }}
-              type="button"
-            >
-              <span className="text-base font-medium text-stone-900 dark:text-stone-100">{rule.rule}</span>
-              <svg
-                className={`w-5 h-5 text-stone-400 dark:text-stone-500 transition-transform duration-200 flex-shrink-0 ml-2 ${expandedRule === idx ? "rotate-180" : ""}`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
+        {safetyRules.map((rule, idx) => {
+          const isExpanded = expandedRule === idx;
+          const panelId = `safety-panel-${idx}`;
+          return (
+            <div key={idx} className="card overflow-hidden">
+              <button
+                onClick={() => setExpandedRule(isExpanded ? null : idx)}
+                aria-expanded={isExpanded}
+                aria-controls={panelId}
+                className="w-full flex items-center justify-between px-4 py-3 text-left cursor-pointer hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors"
+                style={{ touchAction: 'manipulation' }}
+                type="button"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            <div
-              className="grid transition-[grid-template-rows] duration-200 ease-out"
-              style={{ gridTemplateRows: expandedRule === idx ? "1fr" : "0fr" }}
-            >
-              <div className="overflow-hidden">
-                <div className="px-4 pb-3">
-                  <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">{rule.detail}</p>
+                <span className="text-base font-medium text-stone-900 dark:text-stone-100">{rule.rule}</span>
+                <svg
+                  className={`w-5 h-5 text-stone-400 dark:text-stone-500 transition-transform duration-200 flex-shrink-0 ml-2 ${isExpanded ? "rotate-180" : ""}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div
+                id={panelId}
+                role="region"
+                aria-labelledby={`safety-btn-${idx}`}
+                className="grid transition-[grid-template-rows] duration-200 ease-out"
+                style={{ gridTemplateRows: isExpanded ? "1fr" : "0fr" }}
+              >
+                <div className="overflow-hidden">
+                  <div className="px-4 pb-3">
+                    <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">{rule.detail}</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
