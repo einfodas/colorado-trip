@@ -8,7 +8,7 @@ export const tripMeta = {
   dates: "July 29 – August 4, 2026",
   duration: "7 Days, 6 Nights",
   family: ["Jay", "Moon", "Aria (age 5)"],
-  budgetRange: "$2,540 – $4,200 (excl. flights)",
+  budgetRange: "$1,925 confirmed + food/activities",
   baseCities: "Denver (4 nights) + Estes Park (2 nights)",
 };
 
@@ -582,17 +582,25 @@ export const hotels: Hotel[] = [
 export type CarRental = {
   company: string;
   vehicleType: string;
-  dailyRate: string;
+  pickup: string;
+  return: string;
   total: string;
+  confirmationNo: string;
   notes: string;
+  status: "confirmed" | "pending";
 };
 
 export const carRentals: CarRental[] = [
-  { company: "Enterprise", vehicleType: "Mid-size SUV", dailyRate: "$80-120/day", total: "$480-720", notes: "Best customer service, on-site at DEN" },
-  { company: "Budget", vehicleType: "Mid-size SUV", dailyRate: "$70-110/day", total: "$420-660", notes: "Often cheapest, on-site" },
-  { company: "Alamo", vehicleType: "Mid-size SUV", dailyRate: "$75-115/day", total: "$450-690", notes: "Good value, on-site" },
-  { company: "Hertz", vehicleType: "Mid-size SUV", dailyRate: "$85-130/day", total: "$510-780", notes: "Premium option, on-site" },
-  { company: "National", vehicleType: "Mid-size SUV", dailyRate: "$90-140/day", total: "$540-840", notes: "Business-class, on-site" },
+  {
+    company: "Budget",
+    vehicleType: "Standard SUV (Chevrolet Equinox or similar)",
+    pickup: "Denver Intl Airport (DEN), Wed Jul 29, 10:00 AM",
+    return: "Denver Intl Airport (DEN), Tue Aug 4, 8:00 AM",
+    total: "$407.94",
+    confirmationNo: "00841958US5",
+    notes: "Prepaid. Fastbreak Counter. Unlimited mileage. All insurance declined.",
+    status: "confirmed",
+  },
 ];
 
 export const carAdditionalCosts: CarAdditionalCost[] = [
@@ -771,7 +779,7 @@ export const packingList: PackingItem[] = [
 
 export const beforeYouLeave: BeforeYouLeaveItem[] = [
   { task: "Book RMNP Timed Entry Permits", deadline: "July 1 at 8:00 AM MT", priority: "critical" },
-  { task: "Book car rental (SUV at DEN)", deadline: "ASAP, July is peak season", priority: "critical" },
+  { task: "Book car rental (SUV at DEN)", deadline: "BOOKED: Budget #00841958US5", priority: "completed" },
   { task: "Book hotels (both locations)", deadline: "ALREADY BOOKED", priority: "completed" },
   { task: "Check RMNP permit release date for 2026", deadline: "June 2026", priority: "important" },
   { task: "Consult pediatrician about altitude for Aria", deadline: "2 weeks before", priority: "important" },
@@ -785,8 +793,9 @@ export const beforeYouLeave: BeforeYouLeaveItem[] = [
 
 
 export const budgetRows: BudgetRow[] = [
-  { category: "Hotels (6 nights)", low: "$1,000", high: "$1,500", notes: "Split stay, mid-range family hotels" },
-  { category: "Car rental (6 days)", low: "$480", high: "$780", notes: "Mid-size SUV + gas" },
+  { category: "Flights (3 passengers)", low: "$512", high: "$512", notes: "Delta 3876, all paid" },
+  { category: "Hotels (6 nights)", low: "$1,004", high: "$1,004", notes: "Denver $646 + Estes Park $359" },
+  { category: "Car rental (6 days)", low: "$408", high: "$408", notes: "Budget Standard SUV, prepaid" },
   { category: "Car seat", low: "$0", high: "$90", notes: "Bring your own = $0" },
   { category: "Food (7 days)", low: "$600", high: "$1,000", notes: "Mix of restaurants + picnics" },
   { category: "Attractions", low: "$300", high: "$550", notes: "Zoo, museum, RMNP, Pikes Peak, tramway, etc." },
