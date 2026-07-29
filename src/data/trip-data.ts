@@ -97,7 +97,9 @@ export const itinerary: DayPlan[] = [
     location: "Denver",
     timeline: [
       { time: "8:48 AM", activity: "Arrive DEN (Delta 3876)", notes: "" },
-      { time: "9:30 AM", activity: "Pick up rental car", notes: "Allow 30-45 min for car rental + luggage", mapUrl: "https://maps.google.com/?q=Denver+International+Airport,+8500+Pe%C3%B1a+Blvd,+Denver,+CO+80249" },
+      { time: "9:15 AM", activity: "Collect luggage", notes: "Allow 30 min for baggage claim" },
+      { time: "9:45 AM", activity: "Go to Budget Fastbreak Counter", notes: "Follow signs to rental car garage. Fastbreak = skip counter, go straight to vehicle" },
+      { time: "10:00 AM", activity: "Pick up Budget rental car", notes: "Reservation #00841958US5. Standard SUV (Chevy Equinox)", mapUrl: "https://maps.google.com/?q=Denver+International+Airport+Car+Rental" },
       { time: "10:15 AM", activity: "Drive to DoubleTree Denver", notes: "~25 min from DEN", mapUrl: "https://maps.google.com/?q=3203+Quebec+St,+Denver,+CO+80207" },
       { time: "10:45 AM", activity: "Early check-in or luggage drop", notes: "Request early check-in (4 PM standard). If room not ready, leave luggage at front desk" },
       { time: "11:15 AM", activity: "Denver Union Station", notes: "Free to walk around, kid-friendly fountains, ice cream at Milkbox Ice Creamery inside", mapUrl: "https://maps.google.com/?q=1701+Wynkoop+St,+Denver,+CO+80202", pricing: "Free" },
@@ -229,8 +231,10 @@ export const itinerary: DayPlan[] = [
     timeline: [
       { time: "5:30 AM", activity: "Early checkout from Coyote Mountain Lodge", notes: "Check out by 6:00 AM latest" },
       { time: "6:00 AM", activity: "Drive Estes Park → DEN Airport", notes: "~1.5 hrs via US-34 E to I-25 S. Leave by 6 AM to arrive by 7:30 AM", mapUrl: "https://maps.google.com/?q=Denver+International+Airport,+8500+Pe%C3%B1a+Blvd,+Denver,+CO+80249" },
-      { time: "7:30 AM", activity: "Arrive DEN, return rental car", notes: "Allow 30 min for car return + shuttle to terminal" },
-      { time: "8:00 AM", activity: "Terminal, security, breakfast", notes: "Grab quick breakfast at airport" },
+      { time: "7:30 AM", activity: "Arrive DEN, drive to Budget return garage", notes: "Follow signs to rental car return. Budget is on-site" },
+      { time: "7:45 AM", activity: "Return Budget rental car", notes: "Reservation #00841958US5. Fuel up before returning if needed" },
+      { time: "8:00 AM", activity: "Shuttle/walk to terminal", notes: "~10-15 min to terminal from rental car garage" },
+      { time: "8:15 AM", activity: "Terminal, check bags, security", notes: "Delta check-in. Grab quick breakfast at airport" },
       { time: "9:29 AM", activity: "Flight Delta 3876: DEN → AUS", notes: "Arrives Austin 12:44 PM" },
     ],
     driving: "Estes Park → DEN (1.5 hrs)",
