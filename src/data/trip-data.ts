@@ -205,8 +205,8 @@ export const itinerary: DayPlan[] = [
     location: "Estes Park (Coyote Mountain Lodge, 1340 Big Thompson Ave)",
     timeline: [
       { time: "10:00 AM", activity: "Late breakfast at Coyote Mountain Lodge", notes: "Pack snacks, water, picnic dinner for later. Sunscreen, hats, layers for altitude" },
-      { time: "10:30 AM", activity: "Leave lodge, drive to Lake Estes", notes: "~5 min drive. Beautiful lake OUTSIDE RMNP (no reservation needed!)" },
-      { time: "10:45 AM", activity: "Lake Estes loop trail", notes: "Easy 3.7-mile paved loop around the lake. Stroller-friendly, mountain views, geese/ducks for Aria. Rent pedal boats or fishing gear if interested. ~1-1.5 hrs", mapUrl: "https://maps.google.com/?q=Lake+Estes,+Estes+Park,+CO" },
+      { time: "10:30 AM", activity: "Leave lodge, drive to Hermit Park Open Space", notes: "~9 min drive. County park OUTSIDE RMNP (no reservation needed!)" },
+      { time: "10:45 AM", activity: "Hermit Park Open Space", notes: "Hiking trails, mountain views, nature center. Kid-friendly trails, wildlife viewing. Great for Aria to explore before park entry. ~1.5 hrs", mapUrl: "https://maps.google.com/?q=Hermit+Park+Open+Space,+17+Hermit+Pk+Rd,+Estes+Park,+CO+80517" },
       { time: "12:15 PM", activity: "The Stanley Hotel", notes: "Famous hotel from 'The Shining'! Quick photo stop, walk the grounds, gift shop. Historic landmark", mapUrl: "https://maps.google.com/?q=The+Stanley+Hotel,+333+Wonderview+Ave,+Estes+Park,+CO+80517" },
       { time: "12:45 PM", activity: "Lunch in Estes Park downtown", notes: "Poppy's Pizza, Nepal's Cafe, or Smokin' Dave's BBQ. Souvenir shops for Aria" },
       { time: "1:30 PM", activity: "Drive to Beaver Meadows Visitor Center", notes: "~10 min from downtown. Arrive before 2 PM, wait for reservation-free entry" },
@@ -225,9 +225,9 @@ export const itinerary: DayPlan[] = [
       { time: "8:30 PM", activity: "Drive back to Coyote Mountain Lodge", notes: "~10-15 min from park entrance" },
       { time: "8:45 PM", activity: "Return to lodge, pack for early departure", notes: "Flight at 9:29 AM — MUST leave by 6:00 AM tomorrow" },
     ],
-    driving: "Lodge → Lake Estes (5 min) → Stanley Hotel (5 min) → Estes Park downtown → Visitor Center → Trail Ridge Road (~45 min up) → Alpine Visitor Center → Lily Lake (~30 min) → Bear Lake Road (~15 min) → Bear Lake → Sprague Lake → Moraine Park → Lodge (~10 min)",
+    driving: "Lodge → Hermit Park (9 min) → Stanley Hotel (10 min) → Estes Park downtown → Visitor Center → Trail Ridge Road (~45 min up) → Alpine Visitor Center → Lily Lake (~30 min) → Bear Lake Road (~15 min) → Bear Lake → Sprague Lake → Moraine Park → Lodge (~10 min)",
     totalDriving: "~2.5 hrs total driving",
-    critical: "NO RESERVATION NEEDED! Pre-2 PM: Lake Estes + Stanley Hotel (outside park). After 2 PM: Trail Ridge Road, Lily Lake. After 6 PM: Bear Lake Road (Bear Lake, Sprague Lake, Moraine Park). Just pay $30 park entrance fee.",
+    critical: "NO RESERVATION NEEDED! Pre-2 PM: Hermit Park Open Space + Stanley Hotel (outside park). After 2 PM: Trail Ridge Road, Lily Lake. After 6 PM: Bear Lake Road (Bear Lake, Sprague Lake, Moraine Park). Just pay $30 park entrance fee.",
     rainPlan: "Afternoon thunderstorms common. Pre-2 PM indoor alternatives: Estes Park Museum, Creativity Cabin (pottery), The Bull Pin (bowling/arcade). Evening Bear Lake Road visit may still be possible.",
   },
   {
